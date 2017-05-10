@@ -52,9 +52,15 @@ def dat(rom):
 	folderdat = 'system.dat' + rom.replace('/','.')
 	if os.path.exists(folderdat):
 		os.system('rm -rf ' + folderdat)
-	with zipfile.ZipFile(rom,"r") as zip_ref:
-		zip_ref.extract('system.new.dat', folderdat)
-		zip_ref.extract('system.transfer.list', folderdat)
+	extension = rom[lena-3:lena]
+	if extension == 'zip':
+		with zipfile.ZipFile(rom,"r") as zip_ref:
+			zip_ref.extract('system.new.dat', folderdat)
+			zip_ref.extract('system.transfer.list', folderdat)
+	else:
+		with rarfile.RarFile(rom,"r") as rar_ref:
+			rar_ref.extract('system.new.dat', folderdat)
+			rar_ref.extract('system.transfer.list', folderdat)
 	print 'GET system.transfer.list AND system.new.dat SUCCESSFULLY.\nGetting system.img...'
 	call(["python", "./sdat2img.py", folderdat + "/system.transfer.list", folderdat + "/system.new.dat", folderdat + "/system.img"])
 	print 'GET system.img SUCCESSFULLY.'
@@ -64,7 +70,6 @@ def dat(rom):
 		os.system('rm -rf ' + tmp)
 	os.makedirs(tmp)
 	#os.system('sudo mount -o loop ' + folderdat + '/system.img ' + tmp)
-	
 	#subprocess.call('sudo mount -o loop ' + folderdat + '/system.img ' + tmp, shell=True)
 	linkMount = folderdat + '/system.img'
 	call(["sudo","mount",linkMount,tmp])
