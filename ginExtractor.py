@@ -19,7 +19,7 @@ def extractor(romfile):
         _type = 'sin'
     elif extension == 'zip':
         stt = 'complete'
-        z = rarfile.RarFile(romfile)
+        z = zipfile.ZipFile(romfile)
         dir1 = 'system/framework/framework-res.apk'
         dir2 = 'system.new.dat'
         lst = []
@@ -37,7 +37,7 @@ def extractor(romfile):
             stt = 'Unsupported'
     elif extension == 'rar':
         stt = 'complete'
-        z = zipfile.ZipFile(romfile)
+        z = rarfile.RarFile(romfile)
         dir1 = 'system/framework/framework-res.apk'
         dir2 = 'system.new.dat'
         lst = []
@@ -45,9 +45,11 @@ def extractor(romfile):
             t = str(z.namelist()[i])
             lst.append(t)
         if dir1 in lst:
+            print "RAW ROM..."
             framework = ginlib.raw(romfile)
             _type = 'raw'
         elif dir2 in lst:
+            print "DAT ROM..."
             framework = ginlib.dat(romfile)
             _type = 'dat'
         else:
