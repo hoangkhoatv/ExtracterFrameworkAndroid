@@ -18,7 +18,8 @@ def sin(rom):
 	with zipfile.ZipFile(rom,"r") as zip_ref:
 		zip_ref.extract('system.sin', foldersin)
 	print 'GET system.sin SUCCESSFULLY.\nGetting system.ext4 from system.sin...'
-	os.system('java -jar sin2ext4.jar ' + foldersin + '/system.sin')
+	#os.system('java -jar sin2ext4.jar ' + foldersin + '/system.sin')
+	call(["java","-jar","sin2ext4.jar",foldersin,"/system.sin"])
 	filename = os.path.splitext(rom)[0]
 
 	print 'GET system.ext4 SUCCESSFULLY.'
@@ -27,23 +28,31 @@ def sin(rom):
 	if os.path.exists(tmp):
 		os.system('rm -rf ' + tmp)
 	os.makedirs(tmp)
-	os.system('sudo mount -t ext4 -o loop ' + foldersin + '/system.ext4 ./' + tmp)
+	#os.system('sudo mount -t ext4 -o loop ' + foldersin + '/system.ext4 ./' + tmp)
+	call(["sudo","mount","-t","ext4",foldersin + '/system.ext4 ./',tmp])
 	print 'MOUNT system.ext4 SUCCESSFULLY.\nGetting /system/framework...'
 	output = 'framework_' + path_leaf(rom)  + '_' +  strftime('%Y-%m-%d_%H-%M-%S', gmtime())
 	os.makedirs(output)
 	os.system('java -jar oat2dex.jar -o '+ tmp + '/framework/ devfw '+ tmp + '/framework/')	
-	tmp1 = 'cp -r ' + tmp + '/framework/* ' + output
-	os.system(tmp1)
+	#tmp1 = 'cp -r ' + tmp + '/framework/* ' + output
+	checkFile = os.path.isfile(tmp + '/system/framework/boot-jar-result/framework.jar')
+	if checkFile:
+    		call('cp -r '+tmp + '/system/framework/boot-jar-result/framework.jar ' +output+'/framework.jar', shell=True)
+	else:
+    		call('cp -r '+tmp + '/system/framework/framework.jar ' +output+'/framework.jar', shell=True)
+
+
+	#os.system(tmp1)
 	print 'GET /system/framework SUCCESSFULLY.'
 	call(["sudo", "umount", tmp])
 	os.system('rm -rf ' + tmp)
 	os.system('rm -rf ' + foldersin)
 	size = 0
-	checkFile = os.path.isfile(output + '/boot-jar-result/framework.jar')
+	checkFile = os.path.isfile(output + '/framework.jar')
 	if checkFile:
-		size = os.path.getsize(output + '/boot-jar-result/framework.jar')
-	else:
 		size = os.path.getsize(output + '/framework.jar')
+	#else:
+	#	size = os.path.getsize(output + '/framework.jar')
 	return size
 
 
@@ -52,15 +61,16 @@ def dat(rom):
 	folderdat = 'system.dat' + rom.replace('/','.')
 	if os.path.exists(folderdat):
 		os.system('rm -rf ' + folderdat)
-	extension = rom[lena-3:lena]
-	if extension == 'zip':
-		with zipfile.ZipFile(rom,"r") as zip_ref:
-			zip_ref.extract('system.new.dat', folderdat)
-			zip_ref.extract('system.transfer.list', folderdat)
-	else:
-		with rarfile.RarFile(rom,"r") as rar_ref:
-			rar_ref.extract('system.new.dat', folderdat)
-			rar_ref.extract('system.transfer.list', folderdat)
+	with zipfile.ZipFile(rom,"r") as zip_ref:
+		zip_ref.extract('system.new.dat', folderdat)
+		zip_ref.extract('system.transfer.list', folderdat)
+	#extension = rom[lena-3:lena]
+	#if extension == 'zip':
+		
+	#else:
+	#	with rarfile.RarFile(rom,"r") as rar_ref:
+	#		rar_ref.extract('system.new.dat', folderdat)
+	#		rar_ref.extract('system.transfer.list', folderdat)
 	print 'GET system.transfer.list AND system.new.dat SUCCESSFULLY.\nGetting system.img...'
 	call(["python", "./sdat2img.py", folderdat + "/system.transfer.list", folderdat + "/system.new.dat", folderdat + "/system.img"])
 	print 'GET system.img SUCCESSFULLY.'
@@ -79,10 +89,14 @@ def dat(rom):
 	output = 'framework_' + path_leaf(rom)  + '_' +  strftime('%Y-%m-%d_%H-%M-%S', gmtime())
 	#os.makedirs(output)
 	call(["mkdir","-p",output])
-	tmp1 = tmp + '/framework/'
+	checkFile = os.path.isfile(tmp+ '/system/framework/boot-jar-result/framework.jar')
+	if checkFile:
+    		tmp1 = tmp + '/system/framework/boot-jar-result/framework.jar'
+	else:
+    		tmp1 = tmp + '/system/framework/framework.jar'
 	#os.system(tmp1)
 	#call(["cp","-r",tmp1,output])
-	call('cp -r '+tmp1+' ./' +output, shell=True)
+	call('cp -r '+tmp1+' ./' +output+'/framework.jar', shell=True)
 	print 'GET /system/framework SUCCESSFULLY.'
 
 	call(["sudo", "umount", tmp])
@@ -90,11 +104,11 @@ def dat(rom):
 	os.system('rm -rf ' + folderdat)
 	os.system('rm -rf ' + tmp)
 	size = 0
-	checkFile = os.path.isfile(output + '/framework/boot-jar-result/framework.jar')
+	checkFile = os.path.isfile(output + '/framework.jar')
 	if checkFile:
-		size = os.path.getsize(output + '/framework/boot-jar-result/framework.jar')
-	else:
-		size = os.path.getsize(output + '/framework/framework.jar')
+		size = os.path.getsize(output + '/framework.jar')
+	#else:
+	#	size = os.path.getsize(output + '/framework.jar')
 	return size
 
 def raw(rom):
@@ -103,23 +117,29 @@ def raw(rom):
 	if os.path.exists(folderraw):
 		os.system('rm -rf ' + folderraw)
 	tmp = 'ROM' + rom.replace('/','.')
-	
-
 	with zipfile.ZipFile(rom,"r") as zip_ref:
 		zip_ref.extractall("./" + tmp)
 	print 'EXTRACT ROM SUCCESSFULLY.\nGetting /system/framework...'
 	output = 'framework_' + path_leaf(rom)  + '_' +  strftime('%Y-%m-%d_%H-%M-%S',gmtime())
 	os.makedirs(output)
 	os.system('java -jar oat2dex.jar -o '+ tmp + '/system/framework devfw '+ tmp + '/system/framework')	
-	tmp1 = 'cp -r ' + tmp + '/system/framework/* ' + output
+
+	checkFile = os.path.isfile(tmp + '/system/framework/boot-jar-result/framework.jar')
+	if checkFile:
+		#size = os.path.getsize(output + '/boot-jar-result/framework.jar')
+		tmp1 = 'cp -r ' + tmp + '/system/framework/boot-jar-result/framework.jar ' + output + +'/framework.jar'
+	else:
+		#size = os.path.getsize(output + '/framework.jar')
+		tmp1 = 'cp -r ' + tmp + '/system/framework/framework.jar ' + output  +'/framework.jar'
+
 	os.system(tmp1)
 	print 'GET /system/framework SUCCESSFULLY.'
 	os.system('rm -rf ' + tmp)
 	size = 0
-	checkFile = os.path.isfile(output + '/boot-jar-result/framework.jar')
+	checkFile = os.path.isfile(output + '/framework.jar')
 	if checkFile:
-		size = os.path.getsize(output + '/boot-jar-result/framework.jar')
-	else:
 		size = os.path.getsize(output + '/framework.jar')
+	#else:
+	#	size = os.path.getsize(output + '/framework.jar')
 	return size
 

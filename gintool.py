@@ -63,7 +63,16 @@ def main(argv):
             data[path_leaf(filename)] = a
     with open('data.txt', 'w') as outfile:
         json.dump(data, outfile)
-
+    os.system('mkdir -p root')
+    for dirname, dirnames, filenames in os.walk('./'):
+    # print path to all filenames.
+        for filename in filenames:
+            checkfile = 'framework.jar'
+            if(checkfile == filename):
+                tmp = './root' + dirname[1:] + '.jar'
+                os.system('cp -r '+ os.path.join(dirname, filename)+ ' ' + tmp)
+            
+    
     """
     b = extractor(argv[2])
 

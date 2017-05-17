@@ -1,7 +1,7 @@
 import ginlib
 import sys
 import zipfile
-from unrar import rarfile
+#from unrar import rarfile
 
 
 def extractor(romfile):
@@ -35,33 +35,37 @@ def extractor(romfile):
         else:
             print "Unsupported ROM..."
             stt = 'Unsupported'
-    elif extension == 'rar':
-        stt = 'complete'
-        z = rarfile.RarFile(romfile)
-        dir1 = 'system/framework/framework-res.apk'
-        dir2 = 'system.new.dat'
-        lst = []
-        for i in range(len(z.namelist())):
-            t = str(z.namelist()[i])
-            lst.append(t)
-        if dir1 in lst:
-            print "RAW ROM..."
-            framework = ginlib.raw(romfile)
-            _type = 'raw'
-        elif dir2 in lst:
-            print "DAT ROM..."
-            framework = ginlib.dat(romfile)
-            _type = 'dat'
-        else:
-            print "Unsupported ROM..."
-            stt = 'Unsupported'
-    else:
-        print 'Unsupported ROM.'
-        stt = 'Unsupported'
+    # elif extension == 'rar':
+    #     stt = 'complete'
+    #     z = rarfile.RarFile(romfile)
+    #     dir1 = 'system/framework/framework-res.apk'
+    #     dir2 = 'system.new.dat'
+    #     lst = []
+    #     for i in range(len(z.namelist())):
+    #         t = str(z.namelist(os.path.join(dirname, filename)+'framework.jar')[i])
+    #         lst.append(t)
+    #     if dir1 in lst:
+    #         print "RAW ROM..."
+    #         framework = ginlib.raw(romfile)
+    #         _type = 'raw'
+    #     elif dir2 in lst:
+    #         print "DAT ROM..."
+    #         framework = ginlib.dat(romfile)
+    #         _type = 'dat'
+    #     else:
+    #         print "Unsupported ROM..."
+    #         stt = 'Unsupported'
+    # else:
+    #     print 'Unsupported ROM.'
+    #     stt = 'Unsupported'
 
     list['type'] = _type
     list['extension'] = extension
     list['status'] = stt
     list['size'] = framework
+    # if framework < 1000000:
+    #     list['isDeodex'] = false
+    # else:
+    #     list['isDeodex'] = true
 
     return list
