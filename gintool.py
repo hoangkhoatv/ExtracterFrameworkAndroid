@@ -47,6 +47,9 @@ def dump2(jarfile):
 def main(argv):
     #a = extractor(argv[1])
     data={}
+    counDat = 0
+    countRaw = 0
+    countSin = 0
     for dirname, dirnames, filenames in os.walk('./'+argv[1]):
 
     # print path to all filenames.
@@ -56,12 +59,14 @@ def main(argv):
                 a={}
                 print "....Extract.... " + str(os.path.join(dirname, filename))
                 a = extractor(os.path.join(dirname, filename))
+                tmp = a.index('type')
+                print tmp 
             except:
                 pass
             end_time = float('%.3f' % (time.time() - start_time))
             a['time'] = end_time
             data[path_leaf(filename)] = a
-    with open('data.txt', 'w') as outfile:
+    with open('data.json', 'w') as outfile:
         json.dump(data, outfile)
     os.system('mkdir -p root')
     for dirname, dirnames, filenames in os.walk('./'):
