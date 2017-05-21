@@ -11,12 +11,12 @@ def extractor(romfile):
     lena = len(romfile)
     extension = romfile[lena-3:lena]
     print 'ROM type:', extension
-    stt = ''
+    stt = 'Unsupported'
     _type = ''
     if extension == 'ftf':
-        framework = ginlib.sin(romfile)
         stt = 'complete'
         _type = 'sin'
+        framework = ginlib.sin(romfile)
     elif extension == 'zip':
         stt = 'complete'
         z = zipfile.ZipFile(romfile)
@@ -27,11 +27,11 @@ def extractor(romfile):
             t = str(z.namelist()[i])
             lst.append(t)
         if dir1 in lst:
-            framework = ginlib.raw(romfile)
             _type = 'raw'
+            framework = ginlib.raw(romfile)
         elif dir2 in lst:
-            framework = ginlib.dat(romfile)
             _type = 'dat'
+            framework = ginlib.dat(romfile)
         else:
             print "Unsupported ROM..."
             stt = 'Unsupported'
@@ -63,9 +63,10 @@ def extractor(romfile):
     list['extension'] = extension
     list['status'] = stt
     list['size'] = framework
-    # if framework < 1000000:
-    #     list['isDeodex'] = false
-    # else:
-    #     list['isDeodex'] = true
+    checkDone = int (framework)
+    if checkDone < 1000000:
+        list['isDone'] = False
+    else:
+        list['isDone'] = True
 
     return list

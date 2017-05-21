@@ -50,24 +50,54 @@ def main(argv):
     counDat = 0
     countRaw = 0
     countSin = 0
+    countIsDone = 0
+    countComplete = 0
+    countTotal = 0
     for dirname, dirnames, filenames in os.walk('./'+argv[1]):
 
     # print path to all filenames.
         for filename in filenames:
             start_time = time.time() 
             try:
+                countTotal += 1 
                 a={}
+                checkfile = ""
                 print "....Extract.... " + str(os.path.join(dirname, filename))
                 a = extractor(os.path.join(dirname, filename))
-                tmp = a.index('type')
-                print tmp 
+                checkType = a['type']
+                if checkType == "sin":
+                    countSin += 1
+                elif checkType == "dat":
+                    counDat += 1
+                elif checkType == "raw":
+                    countRaw += 1
+                checkComplete = a['status']
+                if checkComplete == 'complete':
+                    countComplete += 1
+                checkDone = a['isDone']
+                if checkDone == True:
+                    countIsDone += 1 
             except:
                 pass
             end_time = float('%.3f' % (time.time() - start_time))
-            a['time'] = end_time
+            if a != None:
+                a['time'] = end_time
+            else:
+                a == 'null'
+            
             data[path_leaf(filename)] = a
-    with open('data.json', 'w') as outfile:
-        json.dump(data, outfile)
+    listData = {}
+    listStatictis = {}
+    listStatictis['total'] = countTotal
+    listStatictis['dat'] = counDat
+    listStatictis['sin'] = countSin
+    listStatictis['raw'] = countRaw
+    listStatictis['complete'] = countComplete
+    listStatictis['done'] = countIsDone
+    listData['statictis'] = listStatictis
+    listData['data'] = data
+    with open('report.json', 'w') as outfile:
+        json.dump(listData, outfile)
     os.system('mkdir -p root')
     for dirname, dirnames, filenames in os.walk('./'):
     # print path to all filenames.

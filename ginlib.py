@@ -1,8 +1,7 @@
 import zipfile
 import os.path
-import ntpath
-
-#import getpass
+import ntpath, pdb
+import re
 from subprocess import call
 from time import gmtime, strftime
 
@@ -13,6 +12,7 @@ def path_leaf(path):
 def sin(rom):
 	print 'Please wait...\nGetting system.sin from ROM...'
 	foldersin = 'system.sin' + rom.replace('/','.')
+	foldersin = re.sub( '\s+', '', foldersin ).strip()
 	if os.path.exists(foldersin):
 		os.system('rm -rf ' + foldersin)
 	with zipfile.ZipFile(rom,"r") as zip_ref:
@@ -27,20 +27,21 @@ def sin(rom):
 	tmp = 'system' + rom.replace('/','.')
 	if os.path.exists(tmp):
 		os.system('rm -rf ' + tmp)
+	tmp = re.sub( '\s+', '', tmp ).strip()
 	os.makedirs(tmp)
 	#os.system('sudo mount -t ext4 -o loop ' + foldersin + '/system.ext4 ./' + tmp)
 	call(["sudo","mount","-t","ext4",foldersin + '/system.ext4 ./',tmp])
 	print 'MOUNT system.ext4 SUCCESSFULLY.\nGetting /system/framework...'
 	output = 'framework_' + path_leaf(rom)  + '_' +  strftime('%Y-%m-%d_%H-%M-%S', gmtime())
+	output = re.sub( '\s+', '', output ).strip()
 	os.makedirs(output)
 	os.system('java -jar oat2dex.jar -o '+ tmp + '/framework/ devfw '+ tmp + '/framework/')	
 	#tmp1 = 'cp -r ' + tmp + '/framework/* ' + output
-	checkFile = os.path.isfile(tmp + '/system/framework/boot-jar-result/framework.jar')
+	checkFile = os.path.isfile(tmp + '/framework/boot-jar-result/framework.jar')
 	if checkFile:
-    		call('cp -r '+tmp + '/system/framework/boot-jar-result/framework.jar ' +output+'/framework.jar', shell=True)
+    		call('cp -r '+tmp + '/framework/boot-jar-result/framework.jar ' +output+'/framework.jar', shell=True)
 	else:
-    		call('cp -r '+tmp + '/system/framework/framework.jar ' +output+'/framework.jar', shell=True)
-
+    		call('cp -r '+tmp + '/framework/framework.jar ' +output+'/framework.jar', shell=True)
 
 	#os.system(tmp1)
 	print 'GET /system/framework SUCCESSFULLY.'
@@ -59,6 +60,7 @@ def sin(rom):
 def dat(rom):
 	print 'Please wait...\nGetting system.transfer.list and system.new.dat from ROM...'
 	folderdat = 'system.dat' + rom.replace('/','.')
+	folderdat = re.sub( '\s+', '', folderdat ).strip()
 	if os.path.exists(folderdat):
 		os.system('rm -rf ' + folderdat)
 	with zipfile.ZipFile(rom,"r") as zip_ref:
@@ -76,30 +78,33 @@ def dat(rom):
 	print 'GET system.img SUCCESSFULLY.'
 	print 'Mounting system.img...'
 	tmp = 'system' + rom.replace('/','.')
-	if os.path.exists(tmp):
-		os.system('rm -rf ' + tmp)
+	tmp = re.sub( '\s+', '', tmp ).strip()
+	# if os.path.exists(tmp):
+	# 	os.system('rm -rf ' + tmp)
+
+	#pdb.set_trace()
 	os.makedirs(tmp)
 	#os.system('sudo mount -o loop ' + folderdat + '/system.img ' + tmp)
 	#subprocess.call('sudo mount -o loop ' + folderdat + '/system.img ' + tmp, shell=True)
 	linkMount = folderdat + '/system.img'
 	call(["sudo","mount",linkMount,tmp])
 	print 'MOUNT system.img SUCCESSFULLY.\nGetting /system/framework...'
-	#print 'Deodex .jar ....'
-	os.system('java -jar oat2dex.jar -o '+ tmp + '/framework/ devfw '+ tmp + '/framework/')		
+	print 'Deodex .jar ....'
+	os.system('java -jar oat2dex_v0.86.jar -o '+ tmp + '/framework/ devfw '+ tmp + '/framework/')		
 	output = 'framework_' + path_leaf(rom)  + '_' +  strftime('%Y-%m-%d_%H-%M-%S', gmtime())
-	#os.makedirs(output)
-	call(["mkdir","-p",output])
-	checkFile = os.path.isfile(tmp+ '/system/framework/boot-jar-result/framework.jar')
+	output = re.sub( '\s+', '', output ).strip()
+	os.makedirs(output)
+	checkFile = os.path.isfile(tmp+ '/framework/boot-jar-result/framework.jar')
 	if checkFile:
-    		tmp1 = tmp + '/system/framework/boot-jar-result/framework.jar'
+    		tmp1 = tmp + '/framework/boot-jar-result/framework.jar'
 	else:
-    		tmp1 = tmp + '/system/framework/framework.jar'
+    		tmp1 = tmp + '/framework/framework.jar'
 	#os.system(tmp1)
 	#call(["cp","-r",tmp1,output])
 	call('cp -r '+tmp1+' ./' +output+'/framework.jar', shell=True)
 	print 'GET /system/framework SUCCESSFULLY.'
 
-	call(["sudo", "umount", tmp])
+	call(["sudo", "umount",tmp])
 	
 	os.system('rm -rf ' + folderdat)
 	os.system('rm -rf ' + tmp)
@@ -114,13 +119,16 @@ def dat(rom):
 def raw(rom):
 	print 'Please wait...\nExtracting ROM...'
 	folderraw = 'system.raw' + rom.replace('/','.')
+	folderraw = re.sub( '\s+', '', folderraw ).strip()
 	if os.path.exists(folderraw):
 		os.system('rm -rf ' + folderraw)
 	tmp = 'ROM' + rom.replace('/','.')
+	tmp = re.sub( '\s+', '', tmp ).strip()
 	with zipfile.ZipFile(rom,"r") as zip_ref:
 		zip_ref.extractall("./" + tmp)
 	print 'EXTRACT ROM SUCCESSFULLY.\nGetting /system/framework...'
 	output = 'framework_' + path_leaf(rom)  + '_' +  strftime('%Y-%m-%d_%H-%M-%S',gmtime())
+	output = re.sub( '\s+', '', output ).strip()
 	os.makedirs(output)
 	os.system('java -jar oat2dex.jar -o '+ tmp + '/system/framework devfw '+ tmp + '/system/framework')	
 
