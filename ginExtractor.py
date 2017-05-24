@@ -6,7 +6,7 @@ import zipfile
 
 def extractor(romfile):
     framework = 0
-    list = {}
+    mList = {}
     print 'Checking ROM type...'
     lena = len(romfile)
     extension = romfile[lena-3:lena]
@@ -35,38 +35,15 @@ def extractor(romfile):
         else:
             print "Unsupported ROM..."
             stt = 'Unsupported'
-    # elif extension == 'rar':
-    #     stt = 'complete'
-    #     z = rarfile.RarFile(romfile)
-    #     dir1 = 'system/framework/framework-res.apk'
-    #     dir2 = 'system.new.dat'
-    #     lst = []
-    #     for i in range(len(z.namelist())):
-    #         t = str(z.namelist(os.path.join(dirname, filename)+'framework.jar')[i])
-    #         lst.append(t)
-    #     if dir1 in lst:
-    #         print "RAW ROM..."
-    #         framework = ginlib.raw(romfile)
-    #         _type = 'raw'
-    #     elif dir2 in lst:
-    #         print "DAT ROM..."
-    #         framework = ginlib.dat(romfile)
-    #         _type = 'dat'
-    #     else:
-    #         print "Unsupported ROM..."
-    #         stt = 'Unsupported'
-    # else:
-    #     print 'Unsupported ROM.'
-    #     stt = 'Unsupported'
 
-    list['type'] = _type
-    list['extension'] = extension
-    list['status'] = stt
-    list['size'] = framework
+    mList['type'] = _type
+    mList['extension'] = extension
+    mList['status'] = stt
+    mList['size'] = framework
     checkDone = int (framework)
     if checkDone < 1000000:
-        list['isDone'] = False
+        mList['isDone'] = False
     else:
-        list['isDone'] = True
+        mList['isDone'] = True
 
-    return list
+    return mList
