@@ -1,12 +1,19 @@
 import ginlib
 import sys
 import zipfile
+from unrar import rarfile
+import tarfile
+import pdb
+import collections
 #from unrar import rarfile
 
 
 def extractor(romfile):
     framework = 0
-    mList = {}
+    outFilename = None
+    sdk = None
+    version = None
+    mList = collections.OrderedDict()
     print 'Checking ROM type...'
     lena = len(romfile)
     extension = romfile[lena-3:lena]
@@ -15,31 +22,56 @@ def extractor(romfile):
     _type = ''
     if extension == 'ftf':
         stt = 'complete'
-        _type = 'sin'
-        framework = ginlib.sin(romfile)
-    elif extension == 'zip':
-        stt = 'complete'
-        z = zipfile.ZipFile(romfile)
-        dir1 = 'system/framework/framework-res.apk'
-        dir2 = 'system.new.dat'
-        lst = []
-        for i in range(len(z.namelist())):
-            t = str(z.namelist()[i])
-            lst.append(t)
-        if dir1 in lst:
-            _type = 'raw'
-            framework = ginlib.raw(romfile)
-        elif dir2 in lst:
-            _type = 'dat'
-            framework = ginlib.dat(romfile)
+        _type = 'ftf'
+        framework,outFilename,sdk,version = ginlib.sin(romfile)
+    elif extension == 'rar':
+        file_rar = rarfile.RarFile(romfile)
+        isData = ginlib.find_data_rar(file_rar,'system.img')
+        if isData != None:
+            _type = 'img'
+            stt = 'complete'
+            framework,outFilename,sdk,version = ginlib.image(romfile)
         else:
-            print "Unsupported ROM..."
-            stt = 'Unsupported'
+                print "Unsupported ROM..."
+                stt = 'Unsupported'
+    elif extension == 'zip':
+        #pdb.set_trace()
+        file_zip = zipfile.ZipFile(romfile)
+        isData = ginlib.find_data_zip(file_zip,'system.img')
+        if isData != None:
+            stt = 'complete'
+            _type = 'img'
+            framework,outFilename,sdk,version = ginlib.image(romfile)
+        else:
+            if ginlib.find_data_zip(file_zip,'framework-res.apk') != None:
+                _type = 'raw'
+                stt = 'complete'
+                framework,outFilename,sdk,version = ginlib.raw(romfile)
+            elif ginlib.find_data_zip(file_zip,'system.new.dat') != None:
+                _type = 'dat'
+                stt = 'complete'
+                framework,outFilename,sdk,version= ginlib.dat(romfile)
+            else:
+                print "Unsupported ROM..."
+                stt = 'Unsupported'
+    elif extension == 'gz':
+        file_tar = tarfile.TarFile(romfile)
+        isData = ginlib.find_data_tar(file_tar,'system.img')
+        if isData != None:
+            _type = 'img'
+            stt = 'complete'
+            framework,outFilename,sdk,version = ginlib.image(romfile)
+        else:
+                print "Unsupported ROM..."
+                stt = 'Unsupported'
 
     mList['type'] = _type
     mList['extension'] = extension
     mList['status'] = stt
+    mList['file name'] = outFilename
     mList['size'] = framework
+    mList['sdk'] = sdk
+    mList['android version']= version
     checkDone = int (framework)
     if checkDone < 1000000:
         mList['isDone'] = False

@@ -6,6 +6,10 @@ import shutil
 import time
 import json
 from json import encoder
+import io
+import collections, pdb
+json.encoder.c_make_encoder = None
+
 encoder.FLOAT_REPR = lambda o: format(o, '.2f')
 
 
@@ -45,17 +49,15 @@ def dump2(jarfile):
 
 
 def main(argv):
-    #a = extractor(argv[1])
     data={}
-    counDat = 0
+    countImg = 0
+    countDat = 0
     countRaw = 0
     countSin = 0
     countIsDone = 0
     countComplete = 0
     countTotal = 0
     for dirname, dirnames, filenames in os.walk('./'+argv[1]):
-
-    # print path to all filenames.
         for filename in filenames:
             start_time = time.time() 
             try:
@@ -64,19 +66,21 @@ def main(argv):
                 checkfile = ""
                 print "....Extract.... " + str(os.path.join(dirname, filename))
                 a = extractor(os.path.join(dirname, filename))
-                checkType = a['type']
-                if checkType == "sin":
-                    countSin += 1
-                elif checkType == "dat":
-                    counDat += 1
-                elif checkType == "raw":
-                    countRaw += 1
                 checkComplete = a['status']
                 if checkComplete == 'complete':
                     countComplete += 1
                 checkDone = a['isDone']
                 if checkDone == True:
-                    countIsDone += 1 
+                    countIsDone += 1
+                    checkType = a['type']
+                    if checkType == "ftf":
+                        countSin += 1
+                    elif checkType == "dat":
+                        countDat += 1
+                    elif checkType == "raw":
+                        countRaw += 1
+                    elif checkType == "img":
+                        countImg += 1
             except:
                 pass
             end_time = float('%.3f' % (time.time() - start_time))
@@ -84,23 +88,32 @@ def main(argv):
                 a['time'] = end_time
             else:
                 a == 'null'
-            
             data[path_leaf(filename)] = a
-    listData = {}
-    listStatictis = {}
+
+    listData = collections.OrderedDict()
+    listStatictis = collections.OrderedDict()
+    #pdb.set_trace()
+    percentDat = float(countDat) / float (countIsDone) * 100.0
+    percentSin = float(countSin) / float (countIsDone) * 100.0
+    percentRaw = float(countRaw) / float (countIsDone) * 100.0
+    percentImg = 100.0 - percentDat - percentSin - percentRaw
+    percentDone = float(countIsDone) / float (countComplete) * 100.0
+    percentComplete = float(countComplete) / float (countTotal) * 100.0
     listStatictis['total'] = countTotal
-    listStatictis['dat'] = counDat
-    listStatictis['sin'] = countSin
-    listStatictis['raw'] = countRaw
-    listStatictis['complete'] = countComplete
-    listStatictis['done'] = countIsDone
+    listStatictis['complete'] = {'total':countComplete, 'percent': percentComplete}
+    listStatictis['done'] = {'total':countIsDone, 'percent': percentDone}
+    listStatictis['dat'] = {'total':countDat, 'percent': percentDat}
+    listStatictis['ftf'] = {'total':countSin, 'percent': percentSin}
+    listStatictis['raw'] = {'total':countRaw, 'percent': percentRaw}
+    listStatictis['image'] = {'total':countImg, 'percent': percentImg}
     listData['statictis'] = listStatictis
     listData['data'] = data
-    with open('report.json', 'w') as outfile:
-        json.dump(listData, outfile)
+
+    with io.open('report.json', 'w',encoding="utf-8") as outfile:
+        outfile.write(unicode((json.dumps(listData, sort_keys=False))))
     os.system('mkdir -p root')
     for dirname, dirnames, filenames in os.walk('./'):
-    # print path to all filenames.
+        # print path to all filenames.
         for filename in filenames:
             checkfile = 'framework.jar'
             if(checkfile == filename):
