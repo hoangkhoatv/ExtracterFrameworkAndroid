@@ -1,0 +1,58 @@
+{
+    "statictis": {
+        "total": 1,
+        "complete": {
+            "total": 1,
+            "percent": 100
+        },
+        "done": {
+            "total": 1,
+            "percent": 100
+        },
+        "dat": {
+            "total": 0,
+            "percent": 0
+        },
+        "ftf": {
+            "total": 0,
+            "percent": 0
+        },
+        "raw": {
+            "total": 1,
+            "percent": 100
+        },
+        "image": {
+            "total": 0,
+            "percent": 0
+        }
+    },
+    "data": {
+        "A66A_AmigoOS 5.0.zip": {
+            "type": "raw",
+            "extension": "zip",
+            "status": "complete",
+            "sdk": "21",
+            "android version": "5.0",
+            "time": 31.45,
+            "framework": {
+                "file name": "framework_A66A_AmigoOS5.0.zip_2017-06-01_06-30-10",
+                "size": 5505932,
+                "isDone": true
+            },
+            "apk": {
+                "list apk":[
+                    {
+                        "name": "clock.apk",
+                        "size": 65269562652
+                    },
+                    {
+                        "name": "clock.apk",
+                        "size": 65269562652
+                    }
+                
+                ],
+                "isDone": true
+            }
+        }
+    }
+}
