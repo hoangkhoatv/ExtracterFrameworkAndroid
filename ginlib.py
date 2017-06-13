@@ -79,7 +79,6 @@ def dat(rom):
 	print 'MOUNT system.img SUCCESSFULLY.\nGetting /system/framework...'
 	print 'Deodex .jar ....'
 	sdk, version = get_sdk_version_android(tmp)
-	#pdb.set_trace()
 	if sdk == '21' or sdk == '22' :
 		os.system('java -jar oat2dex_v0.86.jar -o '+ tmp + '/framework/ devfw '+ tmp + '/framework/')
 	elif int(sdk) >= 23:
@@ -214,6 +213,27 @@ def get_sdk_version_android(members):
                                 version = re.sub("ro.build.version.release=", "",line2,1)
                                 return sdk,version
     return None,None
+
+def get_sdk_version_brand_android(members):
+    checkfile = 'build.prop'
+    for dirname, dirnames, filenames in os.walk(members):
+        for filename in filenames:
+            if(checkfile == filename):
+                path = os.path.join(dirname, filename)
+                command = "cat " + path
+                all_info = subprocess.check_output(command, shell=True).strip()
+                for line1 in all_info.split("\n"):
+                    if "ro.build.version.sdk" in line1:
+                        sdk = re.sub("ro.build.version.sdk=", "",line1,1)
+                        for line2 in all_info.split("\n"):
+                            if "ro.build.version.release" in line2:
+                                version = re.sub("ro.build.version.release=", "",line2,1)
+                                for line3 in all_info.split("\n"):
+									if "ro.product.brand" in line3:
+										brand = re.sub("ro.product.brand=", "",line3,1)
+										return sdk,version,brand
+    return None,None,None
+
 
 def find_data_tar(members,path):
     for member in members.getnames():
