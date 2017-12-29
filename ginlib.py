@@ -4,12 +4,12 @@ import ntpath, pdb
 import re
 from subprocess import call
 from time import gmtime, strftime
-from unrar import rarfile
+import rarfile
 import tarfile
 import platform
 import subprocess
 import hashlib
-
+import config
 def path_leaf(path):
     head, tail = ntpath.split(path)
     return tail or ntpath.basename(head)
@@ -18,6 +18,7 @@ def sin(rom):
     print 'Please wait...\nGetting system.sin from ROM...'
     foldersin = 'system.sin' + rom.replace('/','.')
     foldersin = re.sub( '\s+', '', foldersin ).strip()
+    foldersin = config.tempFolder + foldersin
     if os.path.exists(foldersin):
         os.system('rm -rf ' + foldersin)
     with zipfile.ZipFile(rom,"r") as zip_ref:
@@ -28,15 +29,17 @@ def sin(rom):
 
     print 'GET system.ext4 SUCCESSFULLY.'
     print 'Mounting system.ext4...'
-    tmp = 'system' + rom.replace('/','.')
+    tmp = 'system' + rom.replace('/','.')    
+    tmp = re.sub( '\s+', '', tmp ).strip()
+    tmp = config.tempFolder + tmp
     if os.path.exists(tmp):
         os.system('rm -rf ' + tmp)
-    tmp = re.sub( '\s+', '', tmp ).strip()
     os.makedirs(tmp)
     call(["sudo","mount","-t","ext4",foldersin + '/system.ext4 ./',tmp])
     print 'MOUNT system.ext4 SUCCESSFULLY.\nGetting /system/framework...'
     output = 'framework_' + path_leaf(rom)  + '_' +  strftime('%Y-%m-%d_%H-%M-%S', gmtime())
     output = re.sub( '\s+', '', output ).strip()
+    output = config.outFolder+output
     os.makedirs(output)
     sdk, version = get_sdk_version_android(tmp)
     if sdk == 21 or sdk == 22 :
@@ -63,6 +66,7 @@ def dat(rom):
     print 'Please wait...\nGetting system.transfer.list and system.new.dat from ROM...'
     folderdat = 'system.dat' + rom.replace('/','.')
     folderdat = re.sub( '\s+', '', folderdat ).strip()
+    folderdat = config.tempFolder + folderdat
     if os.path.exists(folderdat):
         os.system('rm -rf ' + folderdat)
     with zipfile.ZipFile(rom,"r") as zip_ref:
@@ -74,7 +78,7 @@ def dat(rom):
     print 'Mounting system.img...'
     tmp = 'system' + rom.replace('/','.')
     tmp = re.sub( '\s+', '', tmp ).strip()	
-    #pdb.set_trace()
+    tmp = config.tempFolder + tmp
     os.makedirs(tmp)
     linkMount = folderdat + '/system.img'
     call(["sudo","mount",linkMount,tmp])
@@ -87,6 +91,7 @@ def dat(rom):
         os.system('java -jar oat2dex.jar -o '+ tmp + '/framework/ devfw '+ tmp + '/framework/')			
     output = 'framework_' + path_leaf(rom)  + '_' +  strftime('%Y-%m-%d_%H-%M-%S', gmtime())
     output = re.sub( '\s+', '', output ).strip()
+    output = config.outFolder + output
     os.makedirs(output)
     checkFile = os.path.isfile(tmp+ '/framework/boot-jar-result/framework.jar')
     if checkFile:
@@ -98,8 +103,8 @@ def dat(rom):
 
     call(["sudo", "umount",tmp])
     
-    os.system('rm -rf ' + folderdat)
-    os.system('rm -rf ' + tmp)
+    # os.system('rm -rf ' + folderdat)
+    # os.system('rm -rf ' + tmp)
     size = 0
     checkFile = os.path.isfile(output + '/framework.jar')
     if checkFile:
@@ -110,15 +115,18 @@ def raw(rom):
     print 'Please wait...\nExtracting ROM...'
     folderraw = 'system.raw' + rom.replace('/','.')
     folderraw = re.sub( '\s+', '', folderraw ).strip()
+    folderraw = config.tempFolder + folderraw
     if os.path.exists(folderraw):
         os.system('rm -rf ' + folderraw)
     tmp = 'ROM' + rom.replace('/','.')
     tmp = re.sub( '\s+', '', tmp ).strip()
+    tmp = config.tempFolder + tmp
     with zipfile.ZipFile(rom,"r") as zip_ref:
         zip_ref.extractall("./" + tmp)
     print 'EXTRACT ROM SUCCESSFULLY.\nGetting /system/framework...'
     output = 'framework_' + path_leaf(rom)  + '_' +  strftime('%Y-%m-%d_%H-%M-%S',gmtime())
     output = re.sub( '\s+', '', output ).strip()
+    output = config.outFolder + output
     os.makedirs(output)
     sdk, version = get_sdk_version_android(tmp)
     if sdk == 21 or sdk == 22 :
@@ -145,19 +153,21 @@ def image(rom):
     print 'Please wait...\nExtracting ROM...'
     folderimage = 'system.img' + rom.replace('/','.')
     folderimage = re.sub( '\s+', '', folderimage ).strip()
+    folderimage = config.tempFolder + folderimage
     if os.path.exists(folderimage):
             os.system('rm -rf ' + folderimage)
     tmp = 'ROM' + rom.replace('/','.')
     tmp = re.sub( '\s+', '', tmp ).strip()
+    tmp = config.tempFolder + tmp
     file_name, file_extension = os.path.splitext(rom)
     if file_extension == '.zip':
         with zipfile.ZipFile(rom,'r') as zip_ref:
             file_data = find_data_zip(zip_ref,'system.img')
             zip_ref.extract(file_data, folderimage)
     elif file_extension == '.rar':
-            rar = rarfile.RarFile(rom,'r')
-            file_data = find_data_rar(rar,'system.img')
-            rar.extract(file_data, folderimage)
+        rar = rarfile.RarFile(rom,'r')
+        file_data = find_data_rar(rar,'system.img')
+        rar.extract(file_data, folderimage)
     elif file_extension == '.gz':
         with tarfile.TarFile(rom,'r') as tar_ref:
             tar_ref.extract(find_data_tar(tar_ref,'system.img'), folderimage)
@@ -168,6 +178,7 @@ def image(rom):
     print 'Mounting system.raw.img...'
     tmp = 'system' + rom.replace('/','.')
     tmp = re.sub( '\s+', '', tmp ).strip()	
+    tmp = config.outFolder + tmp
     os.makedirs(tmp)
     linkMount = folderimage + '/system.raw.img'
     call(["sudo","mount",linkMount,tmp])
@@ -264,3 +275,12 @@ def find_data_rar(members,path):
            return str(member)
     return None
 
+def getHash(url):
+    BLOCKSIZE = 65536
+    hasher = hashlib.sha256()
+    with open(url, 'rb') as afile:
+        buf = afile.read(BLOCKSIZE)
+        while len(buf) > 0:
+            hasher.update(buf)
+            buf = afile.read(BLOCKSIZE)
+    return hasher.hexdigest()
