@@ -1,16 +1,16 @@
 {
-    "A1601EX_11_OTA_034_all_201711031959_local.zip": {
+    "miui_HMNote4XGlobal_V9.0.5.0.NCFMIEI_d6176de291_7.0.zip": {
         "framework": {
-            "typeFile": "", 
-            "hash": "", 
-            "extention": "", 
-            "stt": "", 
-            "outFile": "", 
-            "version": "", 
-            "done": false, 
-            "time": 2090.03, 
-            "size": 0, 
-            "sdk": ""
+            "typeFile": "dat", 
+            "hash": "5d401be42789229d9c6bcebf100c9c3caaeb37f0764b4b65d727dc8188faa1b3", 
+            "extention": "zip", 
+            "stt": "complete", 
+            "outFile": "./out/framework_miui_HMNote4XGlobal_V9.0.5.0.NCFMIEI_d6176de291_7.0.zip_2017-12-30_08-50-32", 
+            "version": "7.0", 
+            "done": true, 
+            "time": 27.61, 
+            "size": 7490413, 
+            "sdk": "24"
         }
     }
 }

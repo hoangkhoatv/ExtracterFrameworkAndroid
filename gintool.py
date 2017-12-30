@@ -93,14 +93,14 @@ def main(argv):
 
     with io.open('report.json', 'w', encoding="utf-8") as outfile:
         outfile.write(unicode(json.dumps(listData, ensure_ascii=False,indent=4)))
-    os.system('mkdir -p root')
-    for dirname, dirnames, filenames in os.walk('./'):
-        # print path to all filenames.
-        for filename in filenames:
-            checkfile = 'framework.jar'
-            if (checkfile == filename):
-                tmp = './root' + dirname[1:] + '.jar'
-                os.system('cp -r ' + os.path.join(dirname, filename) + ' ' + tmp)
+    # os.system('mkdir -p root')
+    # for dirname, dirnames, filenames in os.walk('./'):
+    #     # print path to all filenames.
+    #     for filename in filenames:
+    #         checkfile = 'framework.jar'
+    #         if (checkfile == filename):
+    #             tmp = './root' + dirname[1:] + '.jar'
+    #             os.system('cp -r ' + os.path.join(dirname, filename) + ' ' + tmp)
 
 
 if __name__ == '__main__':

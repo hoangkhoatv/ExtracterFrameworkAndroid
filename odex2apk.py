@@ -75,13 +75,14 @@ def find_odex_for_apk(apk_path, arch):
     # print odex_path
     raise RuntimeError("No .odex file found for %s!" % apk_path)
 
-def odex_to_dex(odex_path, boot_odex_path):
+def odex_to_dex(apk_path,odex_path, boot_odex_path):
     """
     Converts an .odex file to a .dex file, returning its path on success.
     """
     dex_path = "%s.dex" % os.path.splitext(odex_path)[0]
     # Output directory for the dex file
     cwd = os.path.dirname(odex_path)
+    dirname, filename = os.path.split(apk_path)
 
     # remove old files first (if any, ignore race condition).
     if os.path.exists(dex_path):
@@ -93,6 +94,10 @@ def odex_to_dex(odex_path, boot_odex_path):
            os.path.abspath(odex_path), os.path.abspath(boot_odex_path)]
     _logger.debug("Executing: %s", cmd)
     output = subprocess.check_output(cmd, cwd=cwd, stderr=subprocess.STDOUT)
+    for root, dirs, files in os.walk(dirname):
+        for file in files:
+            if file.endswith(".dex"):
+                dex_path = os.path.join(root, file)
     if not os.path.exists(dex_path):
         _logger.debug("Program output: %s", output.decode())
         raise RuntimeError("Failed to convert odex to dex")
@@ -141,7 +146,7 @@ def process_apk(apk_path, arch, boot_odex_path):
         odex_path = find_odex_for_apk(apk_path, arch)
 
         # convert it to a dex file...
-        dex_path = odex_to_dex(odex_path, boot_odex_path)
+        dex_path = odex_to_dex(apk_path,odex_path, boot_odex_path)
 
         # and add it as a classes.dex file
         add_classes_dex(apk_path, dex_path)
@@ -160,7 +165,6 @@ def process_boot(boot_odex_path):
         # Assume ../arch/odex and find ../arch/boot.oat.
         framework_arch_dir = os.path.dirname(boot_odex_path)
         boot_oat_path = os.path.join(framework_arch_dir, "boot.oat")
-
         cmd = ["java", "-jar", OAT2DEX, "boot", boot_oat_path]
         _logger.info("Processing boot directory, may take a minute...")
         _logger.debug("Executing: %s", cmd)
@@ -207,13 +211,13 @@ def detect_paths(apk_file, arch=None, framework_path=None):
 
     # Detect architecture based on the APK files.
     if not arch:
-        arch = detect_arch(framework_path)
+        arch = detect_arch(first_apk_dir)
         if not arch:
             _logger.error("Cannot detect architecture")
             sys.exit(1)
+
     # Assumed boot path, could be non-existing and be created later.
     boot_odex_path = os.path.join(framework_path, arch, "odex")
-
     return arch, boot_odex_path
 
 def main():
@@ -225,14 +229,15 @@ def main():
             args.arch, args.framework_path)
 
     # Validate boot path and try to optimize these files (needed for APK steps).
-    process_boot(boot_odex_path)
-
+    try:
+        process_boot(boot_odex_path)
+    except:
+        _logger.exception("Failed to process boot")
     for file_path in args.apk_files:
         try:
             process_apk(file_path, arch, boot_odex_path)
         except:
             _logger.exception("Failed to process %s", file_path)
-            sys.exit(1)
 
 if __name__ == "__main__":
     main()

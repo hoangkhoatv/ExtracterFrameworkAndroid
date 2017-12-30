@@ -79,42 +79,34 @@ def dat(rom):
     print 'Mounting system.img...'
     tmp = 'system' + rom.replace('/','.')
     tmp = re.sub( '\s+', '', tmp ).strip()
+    tmpMount = config.tempFolder + 'mount' +tmp
     tmp = config.tempFolder + tmp
-    os.makedirs(tmp)
+    os.makedirs(tmpMount)
     linkMount = folderdat + '/system.img'
-    call(["sudo","mount",linkMount,tmp])
+    call(["sudo","mount",linkMount,tmpMount])
+    call('sudo cp -rf ' + tmpMount +' '+ tmp,shell=True)
     print 'MOUNT system.img SUCCESSFULLY.\nGetting /system/framework...'
     print 'Deodex .jar .apk....'
     sdk, version = get_sdk_version_android(tmp)
-    if sdk == '21' or sdk == '22' :
-        os.system('java -jar oat2dex_v0.86.jar -o '+ tmp + '/framework/ devfw '+ tmp + '/framework/')
-    elif int(sdk) >= 23:
-        os.system('java -jar oat2dex.jar -o '+ tmp + '/framework/ devfw '+ tmp + '/framework/')
-    output = 'framework_' + path_leaf(rom)  + '_' +  strftime('%Y-%m-%d_%H-%M-%S', gmtime())
-    output = re.sub( '\s+', '', output ).strip()
-    output = config.outFolder + output
-    os.makedirs(output)
-    checkFile = os.path.isfile(tmp+ '/framework/boot-jar-result/framework.jar')
-
-
+    output = deodexJar(sdk,tmp,rom)
+    checkFile = os.path.isfile(config.tempFolder + 'boot-jar-result/framework.jar')
     if checkFile:
-            tmp1 = tmp + '/framework/boot-jar-result/framework.jar'
+            tmp1 = config.tempFolder + 'boot-jar-result/framework.jar'
     else:
             tmp1 = tmp + '/framework/framework.jar'
     call('cp -r '+tmp1+' ./' +output+'/framework.jar', shell=True)
     print 'GET /system/framework SUCCESSFULLY.'
 
     deodexApk(tmp + '/app')
-    pdb.set_trace()
     listApk = getApk(tmp + '/app')
     for apk in listApk:
         call('cp -r '+apk+' ./' + output, shell=True)
     print 'GET /system/app SUCCESSFULLY.'
 
-    call(["sudo", "umount",tmp])
+    call(["sudo", "umount",tmpMount])
 
-    os.system('rm -rf ' + folderdat)
-    os.system('rm -rf ' + tmp)
+    os.system('rm -rf ' + config.tempFolder +'/*')
+
     size = 0
     checkFile = os.path.isfile(output + '/framework.jar')
     if checkFile:
@@ -209,7 +201,6 @@ def image(rom):
             tmp1 = tmp + '/framework/framework.jar'
     call('cp -r '+tmp1+' ./' +output+'/framework.jar', shell=True)
     print 'GET /system/framework SUCCESSFULLY.'
-
     call(["sudo", "umount",tmp])
 
     os.system('rm -rf ' + folderimage)
@@ -257,16 +248,6 @@ def get_sdk_version_brand_android(members):
                                         return sdk,version,brand
     return None,None,None
 
-def get_sha1_file(members):
-    BLOCKSIZE = 65536
-    hasher = hashlib.sha1()
-    with open(members,'rb') as afile:
-        buf = afile.read(BLOCKSIZE)
-        while len(buf) > 0:
-            hasher.update(buf)
-            buf = afile.read(BLOCKSIZE)
-    return hasher.hexdigest()
-
 def find_data_tar(members,path):
     for member in members.getnames():
         if (path_leaf(str(member)) == path):
@@ -296,9 +277,22 @@ def getHash(url):
     return hasher.hexdigest()
 def deodexApk(path):
     listApk = getApk(path)
+    command = "python odex2apk.py"
     for url in listApk:
-        command = "python odex2apk.py " + url
-        os.popen("sudo -S %s"%(command), 'w').write('Matkhaula123')
+         command = "python odex2apk.py " + url
+         call(command,shell=True)
+
+def deodexJar(sdk,path,rom):
+    sdk = int (sdk)
+    if sdk == 21 or sdk == 22 :
+            call('sudo java -jar oat2dex_v0.86.jar -o '+ config.tempFolder + ' devfw '+ path + '/framework/',shell=True)
+    elif sdk >= 23:
+            call('sudo java -jar oat2dex.jar -o '+ config.tempFolder + 'devfw '+ path + '/framework/',shell=True)
+    output = 'framework_' + path_leaf(rom)  + '_' +  strftime('%Y-%m-%d_%H-%M-%S', gmtime())
+    output = re.sub( '\s+', '', output ).strip()
+    output = config.outFolder + output
+    os.makedirs(output)
+    return output
 
 def getApk(path):
     listApk = []
