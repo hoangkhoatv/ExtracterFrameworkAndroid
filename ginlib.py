@@ -41,6 +41,7 @@ def sin(rom):
     output = 'framework_' + path_leaf(rom)  + '_' +  strftime('%Y-%m-%d_%H-%M-%S', gmtime())
     output = re.sub( '\s+', '', output ).strip()
     output = config.outFolder+output
+    
     os.makedirs(output)
     sdk, version = get_sdk_version_android(tmp)
     if sdk == 21 or sdk == 22 :
@@ -86,25 +87,20 @@ def dat(rom):
     call(["sudo","mount",linkMount,tmpMount])
     call('sudo cp -rf ' + tmpMount +' '+ tmp,shell=True)
     print 'MOUNT system.img SUCCESSFULLY.\nGetting /system/framework...'
+    
     print 'Deodex .jar .apk....'
+    # process framework
     sdk, version = get_sdk_version_android(tmp)
     output = deodexJar(sdk,tmp,rom)
-    checkFile = os.path.isfile(config.tempFolder + 'boot-jar-result/framework.jar')
-    if checkFile:
-            tmp1 = config.tempFolder + 'boot-jar-result/framework.jar'
-    else:
-            tmp1 = tmp + '/framework/framework.jar'
-    call('cp -r '+tmp1+' ./' +output+'/framework.jar', shell=True)
-    print 'GET /system/framework SUCCESSFULLY.'
+    copyFramework(tmp,output)
 
+    # process apk
     deodexApk(tmp + '/app')
     listApk = getApk(tmp + '/app')
-    for apk in listApk:
-        call('cp -r '+apk+' ./' + output, shell=True)
-    print 'GET /system/app SUCCESSFULLY.'
+    copyApk(listApk,output)
 
     call(["sudo", "umount",tmpMount])
-
+    # remove temp folder
     os.system('rm -rf ' + config.tempFolder +'/*')
 
     size = 0
@@ -303,3 +299,18 @@ def getApk(path):
                 url = os.path.join(root, filename)
                 listApk.append(url)
     return listApk
+
+def copyApk(listApk,output):
+    for apk in listApk:
+        call('cp -r '+apk+' ./' + output, shell=True)
+    print 'GET /system/app SUCCESSFULLY.'
+
+def copyFramework(tmp,output):
+    checkFile = os.path.isfile(config.tempFolder + 'boot-jar-result/framework.jar')
+    if checkFile:
+            tmp1 = config.tempFolder + 'boot-jar-result/framework.jar'
+    else:
+            tmp1 = tmp + '/framework/framework.jar'
+    call('cp -r '+tmp1+' ./' +output+'/framework.jar', shell=True)
+    print 'GET /system/framework SUCCESSFULLY.'
+    
