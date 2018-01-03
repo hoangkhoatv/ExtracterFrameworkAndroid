@@ -1,424 +1,819 @@
 {
-    "typeFile": "raw", 
-    "hash": "57250d4feffdd55af998564c773e2f2e061e03fc795d352f4e02edb5077e47e0", 
+    "typeFile": "dat", 
+    "hash": "58da0fd739f1fed4861db03d6569d4e18015de79f942ddb63beb4baf35db45f5", 
+    "name": "", 
     "framework": {
-        "hash": "2a63b1263dacbe75650752289b40e341c730ed9320d17d2b12cac4bba5c6306e", 
+        "hash": "d49dcc59ba95d5d9ca54e0b5b631d7ee3a865fd9e4decb814237b2f8e7ee4aa2", 
         "name": "framework.jar", 
-        "size": 4374144
+        "size": 6361881
     }, 
     "extention": "zip", 
     "stt": "complete", 
-    "outFile": "./out/framework_[SXGo]Unofficial-MIUI_acervenky.zip_2018-01-02_18-21-38", 
-    "version": "4.0.4", 
-    "done": false, 
-    "time": 55.89, 
-    "size": 165984915, 
+    "outFile": "./out/framework_A1601EX_11_OTA_034_all_201711031959_local.zip_2018-01-03_04-30-18", 
+    "version": "5.1", 
+    "time": 235.29, 
+    "sdk": "22", 
     "listApk": [
         {
-            "hash": "76588c35ab7732a25ff3ae881598f90a521d4d68c5f68ceae6369530f5c4a185", 
-            "name": "AntiSpam.apk", 
-            "size": 202926
+            "hash": "5c37ced8a7dfdac4797e7e058463cb8a91add86089c31bef23da9eafc7672709", 
+            "name": "ZawgyiPack.apk", 
+            "size": 837376
         }, 
         {
-            "hash": "233097a7297f24676cb3ec02807e183deb7b24248a18c3d32dd49a0fa8ccd99a", 
-            "name": "ApplicationsProvider.apk", 
-            "size": 19745
+            "hash": "428d4c9fc6028285ea129cd30f28c872bd7ce812431cdba77f6615aa6e72b681", 
+            "name": "OppoDirac.apk", 
+            "size": 174304
         }, 
         {
-            "hash": "c612c5194d62478af5e54f885b0ac357bf46dfe5f361644418d7b802fa56c930", 
-            "name": "Backup.apk", 
-            "size": 589425
+            "hash": "497a9b742a22fc5cfe4a204b85fce9378d9a22f38765613eee02894414334f0a", 
+            "name": "Clock.apk", 
+            "size": 2352317
         }, 
         {
-            "hash": "0d3f9e47fb0b5fb3d02e1e60a31ba0f050018707b6b2de17a169c30829b11a67", 
-            "name": "BackupRestoreConfirmation.apk", 
-            "size": 33042
+            "hash": "53444bda8c02ff2465e8970447382e8315ba66412b3c6657f1440808b2f154dd", 
+            "name": "OppoCriticalLogService.apk", 
+            "size": 44576
         }, 
         {
-            "hash": "4b66dc289e5fd5e0ad57199f8690b00d71e7f17e82dfe375a23369057fd84eb6", 
-            "name": "Bluetooth.apk", 
-            "size": 237586
+            "hash": "c0fc0bb8915b79e7a501fece394555fcf8a88a2c2523bbdb105421c21fef0f08", 
+            "name": "PersianPack.apk", 
+            "size": 835815
         }, 
         {
-            "hash": "c77a567ec14d04a6ad3fbc53cd6d26234752cc488bbd1bb4d650866bd8bf35d4", 
-            "name": "Browser.apk", 
-            "size": 2981929
+            "hash": "cdd661241dc68ea6a7f0af297af6090e0d913f297f06532e4b57709f660260f0", 
+            "name": "SuperZoomCamera.apk", 
+            "size": 99138
         }, 
         {
-            "hash": "2bbb4432e07e5fb9c9199a066d618204f402c379e8b7acd2689fbbb5161be767", 
-            "name": "Calculator.apk", 
-            "size": 132150
+            "hash": "736bab691bb81ec8a21775eabd6b34eb5d79bfb4d332e7af8ada9c148c1a7f7b", 
+            "name": "YGPS.apk", 
+            "size": 186525
         }, 
         {
-            "hash": "3e1747376b31402dc423d13b50de459abf572bbe9b7da3d1515efd9876144b7f", 
-            "name": "Calendar.apk", 
-            "size": 849554
+            "hash": "116c2c7dc9926701df059a09797a06c9ef762d4ce75b44d75f59225d4645885d", 
+            "name": "HindiPack.apk", 
+            "size": 1093212
         }, 
         {
-            "hash": "eb8f25ac9166252859edeb96bfb22bd758cefb50c670cf1277c57ef12b61df6e", 
-            "name": "CalendarProvider.apk", 
-            "size": 134036
+            "hash": "98368a176227a1092e54e668ec81876b68280e9923d38da81db6a2305b37e69d", 
+            "name": "PartnerBookmarksProvider.apk", 
+            "size": 21431
         }, 
         {
-            "hash": "f0d02cf047a7a9db1b484edf223db5f1ace493011e0befd53b3d2bd3cb7e3cc7", 
-            "name": "Camera.apk", 
-            "size": 1003703
+            "hash": "b3f9fe890fbce5f21f4d9433a3dfd1d98ce6ba41a6fb5ba2bd9a85ab722d49b7", 
+            "name": "NepaliTradPack.apk", 
+            "size": 32621
         }, 
         {
-            "hash": "e13a15c213e67ecbe8b6307a86824f2875f34e2933e4e3712c08bc2ff7183c5b", 
-            "name": "CertInstaller.apk", 
-            "size": 51890
+            "hash": "bc7a700fa984c6ea8a27061cbbcb9b3c2df5f6fe4412548689feca2e1ddf8607", 
+            "name": "UrduPack.apk", 
+            "size": 200947
         }, 
         {
-            "hash": "b957828161593576884a0f44c30781e861869245382efcdd534278c990875095", 
-            "name": "ChromeBookmarksSyncAdapter.apk", 
-            "size": 164592
+            "hash": "620aedf9c3506868af0eebc3f719a4e06a5b312cb7a3c415b7a22e807befcf03", 
+            "name": "Drive.apk", 
+            "size": 8252180
         }, 
         {
-            "hash": "3697bb9d1ad14afd27903dea2b7a4caec93d38fd15b1254c86a65ab7fe84477e", 
-            "name": "CloudService.apk", 
-            "size": 176230
+            "hash": "a585e8088bc9a29a5f080e192ac16b65dc29a9bf9806e2228bf0f3a580d5f493", 
+            "name": "WebViewGoogle.apk", 
+            "size": 10528322
         }, 
         {
-            "hash": "b2acb120ddad6402981528a26052ea27c8ad015cdfeb10eca78c35b4ac9a5f1a", 
-            "name": "Contacts.apk", 
-            "size": 2758545
+            "hash": "fff63527686c1ec28921113e328a236bd55e393001590c58d1cd45aff5755449", 
+            "name": "NlpService.apk", 
+            "size": 11183
         }, 
         {
-            "hash": "e44a78ffa5f3f6c3ee7c9924077f46d4f1447a546453fde4e0e81c7ddf6940f1", 
-            "name": "ContactsProvider.apk", 
-            "size": 416115
+            "hash": "e3e773a883835dc44f6c9f68a73a9648c39636bcb72bf2876c72e87ddda3f2fc", 
+            "name": "OppoCamera.apk", 
+            "size": 9050467
         }, 
         {
-            "hash": "f63f6f2e69384e4f33a03d0a803d19acfc9e1b6797e6067b0d7e30da35a3eb5d", 
-            "name": "DefaultContainerService.apk", 
-            "size": 11335
+            "hash": "ec80cd613ec68bc3e553b2ef939f7d9d37ab8321a13a9913b80a7652f6685619", 
+            "name": "notification_center.apk", 
+            "size": 322148
         }, 
         {
-            "hash": "a3e1750147234145317f5abd5d799e0c4a257403de1bfbf4170cc6f87ddae8ac", 
-            "name": "DeskClock.apk", 
-            "size": 2318673
+            "hash": "0e0287d0516d187be8bc1713c17f36d598f44261635425f4cb6c0285e5aa8471", 
+            "name": "OppoAutoTestServer.apk", 
+            "size": 709094
         }, 
         {
-            "hash": "1ad5b8d92bfb6280b965c4aae9941f9171e76bd5a02daf917c38434602d16f88", 
-            "name": "DownloadProvider.apk", 
-            "size": 119538
+            "hash": "140942beac50d8514b788c309eda0149be5c8547ddc87a46b583c78662f9d1ca", 
+            "name": "ColorUIEngine.apk", 
+            "size": 192460
         }, 
         {
-            "hash": "68a9a3f328a9eba2287042eaec4e42578b26752894805f6db174b85a8857a580", 
-            "name": "DownloadProviderUi.apk", 
-            "size": 176517
+            "hash": "e8534bb2c172daeecaa209e87699ff6c7bcdb7c7dcac076c1875e93e6d25dd27", 
+            "name": "OppoSmallWeatherWidget.apk", 
+            "size": 81858
         }, 
         {
-            "hash": "99bcf11eb9aaa87147d0d1ec138c5704e1fef43e72a1c08bd452b5f3a091e75f", 
-            "name": "DrmProvider.apk", 
-            "size": 15299
+            "hash": "44062c02986e0e8e4096b3c5d3c16fd22649028e94b86b9188f2417184739079", 
+            "name": "SimpleVistorMode.apk", 
+            "size": 1377340
         }, 
         {
-            "hash": "c360136360ed52338b148c25e7a2b3f17d2de12c787158c94ac54e4b42861cbc", 
-            "name": "Email.apk", 
-            "size": 1749526
+            "hash": "b1a115d0e9469a620929ef83136169f5fc199641f853cee77a7ada35985be5fd", 
+            "name": "MalayanPack.apk", 
+            "size": 2972374
         }, 
         {
-            "hash": "6687200a5aca8d8e76d6ce9fb9cf7232093f0c91df830ff59037051f917d65b5", 
-            "name": "Exchange.apk", 
-            "size": 589976
-        }, 
-        {
-            "hash": "5a2b81c7b72e2a73ed4460f0f90ef30be53fc1d9f32fcfcdc83d1d315f085b5d", 
-            "name": "FileExplorer.apk", 
-            "size": 523459
-        }, 
-        {
-            "hash": "9d5aae3e29bbefe48a261ac74ebc1a2cb2bccc455bc9adbcbd8733436424d50f", 
-            "name": "Gallery2.apk", 
-            "size": 1506919
-        }, 
-        {
-            "hash": "228d8085aae92b099b2d847b317fd55b5e14b2faea96268937d9392a32e00f50", 
-            "name": "Gmail.apk", 
-            "size": 2801539
-        }, 
-        {
-            "hash": "436aad62a45acc24b8b06762db2d5972d245b29462ab77c109c03859c4093333", 
-            "name": "GoogleBackupTransport.apk", 
-            "size": 84106
-        }, 
-        {
-            "hash": "f59e3ff3bfc61f95572feb7306827e81113eac7335eecab8cead18ed1ea52a7b", 
-            "name": "GoogleCalendarSyncAdapter.apk", 
-            "size": 143789
-        }, 
-        {
-            "hash": "b4f1769c739968836a1bc0cb14c961d2ed4ec49553e18ad254cf94eed93520ef", 
-            "name": "GoogleContactsSyncAdapter.apk", 
-            "size": 145752
-        }, 
-        {
-            "hash": "75edc875249995ef2ded83ccae2c85de815346395c301933fb326d851876f6b3", 
-            "name": "GoogleLoginService.apk", 
-            "size": 2314006
-        }, 
-        {
-            "hash": "7706a116fa3230f09cdf6b3b30b33675ad7ad148d05185ad3b6b545a29e11084", 
-            "name": "GooglePartnerSetup.apk", 
-            "size": 98171
-        }, 
-        {
-            "hash": "2d0bade2696ec8288786c89d763897d5ec129fcaec8d4f8923906bddb70c406c", 
-            "name": "GooglePlayStore3.5.19.apk", 
-            "size": 4000309
-        }, 
-        {
-            "hash": "e596e1f171097a02fffcb4c1393302ba5380fabed640f0a490c96dc85952f539", 
-            "name": "GoogleServicesFramework.apk", 
-            "size": 2326020
-        }, 
-        {
-            "hash": "1e88dd5b0c883c9e9fed145f2593b904fe449826fc81dac0d57ca142240eaf00", 
+            "hash": "d4f0a3f302923657a655e706666411c3e7ce2f4a384c4b29bdbc93ccb05e19b4", 
             "name": "GoogleTTS.apk", 
-            "size": 4321971
+            "size": 12574230
         }, 
         {
-            "hash": "f82af7da161f292cd64945b7377ba9266e15c26419e2e7cb780ddbfc132d979e", 
-            "name": "GuardProvider.apk", 
-            "size": 411208
+            "hash": "4b054d4e827506f3588ba0e30d6021f75557f03596c3c7eaea0efb3005d5ab52", 
+            "name": "usageDumper.apk", 
+            "size": 12432
         }, 
         {
-            "hash": "30383b6189de4a96cddc9a3b665995abb940bf73ffa8bd798d7b18c92501ee65", 
-            "name": "HdmiService.apk", 
-            "size": 422273
+            "hash": "c62c7e7fa0523acc0d1d060588b36daa924bb4752c798c2405666929a7f08ef1", 
+            "name": "FrenchPack.apk", 
+            "size": 7031487
         }, 
         {
-            "hash": "a09d7fa3ad73cbaa96cfbb2304a051d5bfd6c93cb0c4528b43f157f135a9b047", 
+            "hash": "0e550403bbe0b78f583ac9a85631e0519d75e37a538279292166cc06beb8deb4", 
+            "name": "FactoryGps.apk", 
+            "size": 11635132
+        }, 
+        {
+            "hash": "21f0e095b68208b047c72d49a75b77e0abc90a3b2490e928c04e2561bf05af41", 
+            "name": "OppoLockScreenPictorial2.apk", 
+            "size": 23366980
+        }, 
+        {
+            "hash": "cbcd511b78355739df23edd3204612264f36d72cd393b13c46a186a6c323d25e", 
+            "name": "TagalogPack.apk", 
+            "size": 725111
+        }, 
+        {
+            "hash": "fab7ff15b4621db9bbdfdc351ae52f56b72a2078b1f606151876d573061adc52", 
+            "name": "OppoCompass.apk", 
+            "size": 546931
+        }, 
+        {
+            "hash": "0de1aeb12cfe4ac85d256b653cfd5e975d555ed2dfb51f34a112ee19b20f7ddf", 
+            "name": "WallpaperChooser.apk", 
+            "size": 185913
+        }, 
+        {
+            "hash": "d1e50733129bb1fea3c09fea0fc8d70d7bc70a37181a83d87371cccc25945955", 
+            "name": "DlnaService.apk", 
+            "size": 403567
+        }, 
+        {
+            "hash": "f7159247dd047495239d18141cb7555ac7a050ce4d05d359e226568ce3feada3", 
+            "name": "OppoFlashLight.apk", 
+            "size": 54205
+        }, 
+        {
+            "hash": "ce78a04bdf142e2d7e1dbb0114bc53b5ba36b2b438873e081b4a9f75b990cafb", 
+            "name": "FastVideo.apk", 
+            "size": 92306
+        }, 
+        {
+            "hash": "5d54490b4f66f6b39eb40195cf59de796803faf3e2928241af9672ded9bbaf7c", 
+            "name": "OppoLeather.apk", 
+            "size": 1283555
+        }, 
+        {
+            "hash": "0cbb0451a9a61bfdfd3c62f634d04034073056182264445df82a08b966e7b1d9", 
+            "name": "Music2.apk", 
+            "size": 13531067
+        }, 
+        {
+            "hash": "a003c8695275ffea46b91216001831ed5aca33ec84f960ff955c52c2060aab10", 
+            "name": "FileManager.apk", 
+            "size": 4108156
+        }, 
+        {
+            "hash": "1215b3a8944a80e87d62cfed6149ed254f788229c8fe69afcb9d029302972966", 
+            "name": "BengaliPack.apk", 
+            "size": 419498
+        }, 
+        {
+            "hash": "f82c735e99e8543ea36445e45de4e0ce9d91ad17d118afb33a587c1206e6a0dc", 
+            "name": "OppoPreventMode.apk", 
+            "size": 66446
+        }, 
+        {
+            "hash": "7b1ef349d39db1032d757fb14b174c7ab2693e960299c5ce26d54b47b94499eb", 
+            "name": "Bluetooth.apk", 
+            "size": 1205949
+        }, 
+        {
+            "hash": "00d7e7ae6ac5d5c9a953b4daa96f1cfc77cf67eb2a15e677c72e8f09b55cb2f1", 
+            "name": "SkinPack0DefaultWhite.apk", 
+            "size": 168850
+        }, 
+        {
+            "hash": "cfd9d53aabaf92ac7bad97562f90d4024b0391b5a996e813a586f82e5a364c50", 
+            "name": "CertInstaller.apk", 
+            "size": 246114
+        }, 
+        {
+            "hash": "622d1bff4ec559c2846674d70d5975cd0b66663e84492b5be76c66152f244d6c", 
+            "name": "FM2.apk", 
+            "size": 366033
+        }, 
+        {
+            "hash": "d0887aa5cf1c8de7661d7cc418a792ac23c609707244b15f31b619c10fdc0077", 
             "name": "HTMLViewer.apk", 
-            "size": 8543
+            "size": 15170
         }, 
         {
-            "hash": "9145140b179d191d48ba1a499226fe575afea064a760f6ec561ba2c2b508536e", 
-            "name": "KeyChain.apk", 
-            "size": 25754
+            "hash": "3d26c0f1c86b8e14705e850e08edf0d8f688399435063fedb522260ad2cd8ddf", 
+            "name": "Ocloud.apk", 
+            "size": 4833639
         }, 
         {
-            "hash": "d550055ffab4c92140827a9bec51b7a555ab1a2a1589e6c90267d5b2ebe70073", 
-            "name": "LatinImeGoogle.apk", 
-            "size": 6165681
+            "hash": "3f8acf28701a4c24b4bac131eedca5a81b2f5e43475385efeaa45d070ec0cd7c", 
+            "name": "GoogleCalendarSyncAdapter.apk", 
+            "size": 1112524
         }, 
         {
-            "hash": "846bd9a5673d64444a8f54cbd9983029094100ffba079d92ecef9dda8df64fbd", 
-            "name": "LBESEC_MIUI.apk", 
-            "size": 516607
+            "hash": "ec20ab2537a4377d2d3cd1741a8c8cf43e664d06220ddb04d9ae4e113857c0a3", 
+            "name": "SystemAppUpdateService.apk", 
+            "size": 472707
         }, 
         {
-            "hash": "a5bb9d83fd1679969d3c5b0ad5a9385a2ebc04d1209c86294b7f0a5d697cd123", 
-            "name": "LiveWallpapers.apk", 
-            "size": 1674445
+            "hash": "9b08e6b47857f02dbcd143a45766d7a99247a35bb24d53894d74b4656629be1e", 
+            "name": "Locationpicker.apk", 
+            "size": 2160695
         }, 
         {
-            "hash": "fb626d2cf7236741d6e8896a52f69d9e446f002d6ce0a340786ca2bb4587fea5", 
-            "name": "LiveWallpapersPicker.apk", 
-            "size": 121247
+            "hash": "ce0ccd64a329195288569332bc8b617d41caa6d354b27b08cb7ac324bd0d1e45", 
+            "name": "PrintSpooler.apk", 
+            "size": 526755
         }, 
         {
-            "hash": "daa9fc0451fc25542b69d353734e7671854b547cceb623e53fe658d07690b2fa", 
-            "name": "MarketUpdater.apk", 
-            "size": 12407
+            "hash": "678e2499957378ef2e26290a576d469c37b0258295ac3e7f77b3054f6a0dc35e", 
+            "name": "OppoBootReg.apk", 
+            "size": 857536
         }, 
         {
-            "hash": "730a727081b519b31f262ff1a4cdddd814cf9ec1c73f80499f924f491a24eeeb", 
-            "name": "MediaProvider.apk", 
-            "size": 62093
+            "hash": "92c9b9de3d84c3573755244be48ae6b9c35639f9d8cfa87d13afdfcd7f783362", 
+            "name": "ChromeWithBrowser.apk", 
+            "size": 59177145
         }, 
         {
-            "hash": "aa277a2422899038837c8dbdbda0e50e48153a47418a584b404f213507c8625d", 
-            "name": "MiuiCompass.apk", 
-            "size": 1403158
+            "hash": "2cdf9f005a6b3509d815ba0af85e2e26f34b1598a97089ca1fbfd1d63e126c61", 
+            "name": "GrandmotherLauncher.apk", 
+            "size": 731930
         }, 
         {
-            "hash": "fa00f8be4b30a3a3139fde36c02f39128e7fc04201d0e7d219e7b37df3a0efa0", 
-            "name": "MiuiHome.apk", 
-            "size": 5627991
+            "hash": "5eb3e41787e6e45c5fe07252ff0998c4f3891c5a6e113be5e00720706126b0f4", 
+            "name": "OppoPhoneActivation.apk", 
+            "size": 398981
         }, 
         {
-            "hash": "3d13eba786652739b736193e5df7482fe3b027746da2ef8a25d8ab4a51ab1719", 
-            "name": "MIUIStats.apk", 
-            "size": 70828
+            "hash": "a6ad230a308150669694373fef48e9a2a9247da7e5c1eeb4157b1b9df7b8876a", 
+            "name": "OperaBrowser.apk", 
+            "size": 33711292
         }, 
         {
-            "hash": "36a1a01a2e0b0598339753e4bf705de963689445135a907cc3bedcdb8270221b", 
-            "name": "MiuiSystemUI.apk", 
-            "size": 3203532
+            "hash": "3a1659f5e41e9ddc4bd094625fbccad58d07c5ad4646b5867d5b0330a671825a", 
+            "name": "YouTube.apk", 
+            "size": 7749150
         }, 
         {
-            "hash": "57ed007ab346b224d9369c43db962cc487105af2c79d975da0f09fc40130ac70", 
-            "name": "MiuiVideoPlayer.apk", 
-            "size": 484653
+            "hash": "3a5db5febfd9db1c12b5796f80bf89708461ce8eee830e8671f9a4fc98a131ef", 
+            "name": "SinhalaPack.apk", 
+            "size": 30379
         }, 
         {
-            "hash": "f506ec265b2b441fd01c9ff388311447c93f823c8950d1ddaad7969941156d06", 
-            "name": "Mms.apk", 
-            "size": 5325705
+            "hash": "dba5dc0bf66554317c82aee5d4249ba7d94aa176db31058630dd977a235c4089", 
+            "name": "NearMeSync-V2.1.0.apk", 
+            "size": 3524291
         }, 
         {
-            "hash": "96dd063f406d3faa6f244d5ffddc0f4970ef62fffc619ae94a79ac1387d2d96d", 
-            "name": "Music.apk", 
-            "size": 2837690
+            "hash": "08cf70fd5f77bd9a67a50b6a8938b5347f9ac7fef2236ec3ec2fb8e6220bf878", 
+            "name": "AppBackupComposer.apk", 
+            "size": 29185
         }, 
         {
-            "hash": "60b48b70ecddc77568359b86dcac16df371b0465bafdc0ca183e89a10ed202a8", 
-            "name": "MusicFX.apk", 
-            "size": 75387
+            "hash": "9f1a2a70bd66bc85cd7becebd1902813b188556ff4d35a7ade874a770b33917e", 
+            "name": "EngineerMode.apk", 
+            "size": 569388
         }, 
         {
-            "hash": "c83e0f94fea908fa84b59820846eac5b888e6f3f488c58a47852e274635bf344", 
-            "name": "NetworkAssistant.apk", 
-            "size": 390138
+            "hash": "45518cf2a4750103925ed3144832422bdea06de0c5e8c5ac8e98ccf3d57fc244", 
+            "name": "BasicDreams.apk", 
+            "size": 42745
         }, 
         {
-            "hash": "80ba5c5f220a8495b4be9ff55bc203f40a3c9f827738de018da7269e0be80d0f", 
-            "name": "NetworkLocation.apk", 
-            "size": 271513
+            "hash": "87bbe9d1feea1fdbd44abe202bffbc557139502a939f51756d3964075c815b25", 
+            "name": "KazakhPack.apk", 
+            "size": 2597582
         }, 
         {
-            "hash": "4fd7715b51698cfe6883bd0f0e005a1c41a8dde1bb8f84b64518390891c5bbcb", 
-            "name": "Notes.apk", 
-            "size": 4430481
+            "hash": "10c5544a562296eb0830dc6df7ba74c152560a8e1921c0bf46e3e99129a5c3f9", 
+            "name": "AvastOfferWall.apk", 
+            "size": 199159
         }, 
         {
-            "hash": "d2a995480a272de17f44993ca8acd4de88b2729ba609cea933a27caad8dc9439", 
-            "name": "PackageInstaller.apk", 
-            "size": 95529
-        }, 
-        {
-            "hash": "cfccd70c613f1155ae7f29f43319ba25bb69781a9fd225aa134972f4171f31cc", 
-            "name": "Phone.apk", 
-            "size": 2986707
-        }, 
-        {
-            "hash": "c971715e25dc8bcd528eb3cb8128a232a854187912b52afb0a85e781a21af146", 
-            "name": "PicoTts.apk", 
-            "size": 15445
-        }, 
-        {
-            "hash": "7a56128fc7c0c723ad37a6229c8a808dddb076d02d7a58a0362eb49aacfcf6f9", 
-            "name": "Provision.apk", 
-            "size": 3492
-        }, 
-        {
-            "hash": "ad85a37b83d1144ffb5d054dfaeef5962f298c2e92cee0947e6eb907a697e592", 
-            "name": "QuickSearchBox.apk", 
-            "size": 385867
-        }, 
-        {
-            "hash": "e395da521ad09e9997dabf67b255897722a1cd9c95ef2acb950861cb30a24298", 
-            "name": "SDCARD Mounter for Xperia P.apk", 
-            "size": 575754
-        }, 
-        {
-            "hash": "e1fb1fd8055ae3e2ffbe22adcd946365fa451b2a2b669c069056d4d2650146c7", 
-            "name": "Settings.apk", 
-            "size": 5856790
-        }, 
-        {
-            "hash": "327e26af8c4782b844748f00cd84315584d7dc34f633d478cb6031f33a13d7f7", 
-            "name": "SettingsProvider.apk", 
-            "size": 49302
-        }, 
-        {
-            "hash": "57959137ac5b8b00dca79f02fe5f79210c13832d8ff730e9c2e6f69065018a9c", 
-            "name": "SharedStorageBackup.apk", 
-            "size": 6063
-        }, 
-        {
-            "hash": "7e0e5f0c5f3d64ac4d70fa715cbd0e6f1259fff4807e172c170961001e851a9f", 
-            "name": "SoundRecorder.apk", 
-            "size": 988566
-        }, 
-        {
-            "hash": "5e2580d97a1c8746bf018412b59e4ac0dea357833401db57a04a52fd39887e5c", 
-            "name": "STEBluetooth.apk", 
-            "size": 54736
-        }, 
-        {
-            "hash": "12a6b3c8cf6c7058e6d6b24fdd57f3015ba9c881159d42db462ea06372d93ebb", 
-            "name": "Stk.apk", 
-            "size": 63364
-        }, 
-        {
-            "hash": "a438d6ef5b1163aa0acdd01eb33046d75d00538f80befdcfc969b9a66c8d940c", 
-            "name": "Tag.apk", 
-            "size": 168771
-        }, 
-        {
-            "hash": "dd4f2291eca9722e8dc8fb6f6a17bc74b3dbeb00eb5c1333a233ecc962454b4c", 
-            "name": "Talk.apk", 
-            "size": 1663774
-        }, 
-        {
-            "hash": "669becf230d8534864c0550a631c0e8cfb82860cb9e49784c450945fa445de95", 
-            "name": "TelephonyProvider.apk", 
-            "size": 60856
-        }, 
-        {
-            "hash": "f417ba5eaaafa8b75dc16b5ca5710b8a628cc5e69967e235c4855ac6a040c37b", 
-            "name": "TelocationProvider.apk", 
-            "size": 15286
-        }, 
-        {
-            "hash": "de7bac01d2026e1dd4b219e345a0be3a14c5a6a1e4661aa41f839f169aa6738a", 
-            "name": "ThemeManager.apk", 
-            "size": 767907
-        }, 
-        {
-            "hash": "c7162571bde328a5521fef2bddac6a3e6f5543e81fd9d6d4e346c876cbfa5403", 
-            "name": "UserbookProvider.apk", 
-            "size": 6159
-        }, 
-        {
-            "hash": "20c7d08008ff0a757c65082c8cfaa4e2299ac6608a990e109d0e14617484fae3", 
-            "name": "UserDictionaryProvider.apk", 
-            "size": 11115
-        }, 
-        {
-            "hash": "578d9cf899e0758eb8b152be70dffb90a665875863a50af58f3506a04a499600", 
-            "name": "VideoEditor.apk", 
-            "size": 4550042
-        }, 
-        {
-            "hash": "d285e4f6aa1a3b160f86c0fc87ff0d051588e32be0875287b83a3b762358f361", 
-            "name": "VisualizationWallpapers.apk", 
-            "size": 154744
-        }, 
-        {
-            "hash": "7b5defecd77ab2622b7da996e8e8e47e9b455589d0145e1530ff3bc80361f0d8", 
-            "name": "VoiceDialer.apk", 
-            "size": 65684
-        }, 
-        {
-            "hash": "6d3062ca2fde22fe94e6600d4ba2c57a81162d841450101acc4f7966f2b32a42", 
-            "name": "VpnDialogs.apk", 
-            "size": 18390
-        }, 
-        {
-            "hash": "d79b58aaf5e663ef84f5808904b66cff9cada9fa482c9962ca2d3121831c4218", 
+            "hash": "8cbbb92c1e419ee011796be439d683f48c386660ce986d1a172fb9aa903cb3cf", 
             "name": "WAPPushManager.apk", 
-            "size": 7080
+            "size": 18979
         }, 
         {
-            "hash": "24e056e961fba5fd48d87b5018a77d2f48c8e45c7e05ea0278546f6e6b21f3a1", 
-            "name": "WeatherProvider.apk", 
-            "size": 9215
+            "hash": "32d22af5f988c65636b2490faab9f63b2c389f97c0da3b6cb16074a32a013a71", 
+            "name": "OppoForgotPasswordExp.apk", 
+            "size": 59975
         }, 
         {
-            "hash": "2e20ac29f3df33ab53f9ff4547fc72e82c92a09725fec653c0ca8908af37e4ea", 
-            "name": "XiaomiServiceFramework.apk", 
-            "size": 440263
+            "hash": "3b1d0e7b0711b5da91731029f7f99f94dab389cc231c61991e41a3176e06cbaa", 
+            "name": "OppoOperationManual.apk", 
+            "size": 3444325
         }, 
         {
-            "hash": "739e03b7e412e3543055e98680b0e5061b6fad2be657dee950ae9d925d9dcc61", 
-            "name": "YoutubeHD.apk", 
-            "size": 6332989
+            "hash": "5431e4a146bff28c3595e96880900e4bdc3ee3eae048c3b6c599e4ffdb3ba077", 
+            "name": "ThemeSpaceLib.apk", 
+            "size": 328972
+        }, 
+        {
+            "hash": "eb91be36014f5727d1ffcd6719e72bb9a96121624756cdccc44e0065c6290677", 
+            "name": "OppoGoogleTranslateService.apk", 
+            "size": 14250
+        }, 
+        {
+            "hash": "1a00df883d4908d6aaa853b8dffe9065886ee1ad9e04a544481ee2597d8f18dc", 
+            "name": "SpanishPack.apk", 
+            "size": 7932926
+        }, 
+        {
+            "hash": "04156546622a6feef105adf91dcc7b57b66be8df60a4a2bb4ae2eba0571d202f", 
+            "name": "KeyguardNotification.apk", 
+            "size": 204023
+        }, 
+        {
+            "hash": "3f57366436a70de4116128b673effbae2a7561e83460ee9eee39f88374652da4", 
+            "name": "FilterCamera.apk", 
+            "size": 5001431
+        }, 
+        {
+            "hash": "0acbfeaa949eb4b39742a5b577314c7cdc89c176f7b470bb368949e2420f67a1", 
+            "name": "PlayGames.apk", 
+            "size": 8328835
+        }, 
+        {
+            "hash": "2ce7f09527d0a5c11918aa11e771686af058e9b2aa4461219236758df1f544bd", 
+            "name": "talkback.apk", 
+            "size": 5270014
+        }, 
+        {
+            "hash": "c195d53c9f63470785a833d8fa692bbf048197d4ca7386d04cd021988711a7f6", 
+            "name": "TelcelNetLock.apk", 
+            "size": 99421
+        }, 
+        {
+            "hash": "5ab3ae108c4865c1255ab9f4584a87e6860850318e00ff6c21d26113e64ab250", 
+            "name": "PinyinPack.apk", 
+            "size": 11511592
+        }, 
+        {
+            "hash": "929e5d8b489a0f781fdea32a1af9ffea9aff02dda8c736e7c2d1b68c44632426", 
+            "name": "OppoUsbSelection.apk", 
+            "size": 281711
+        }, 
+        {
+            "hash": "75f1f1d5fabb2a2bcfd7519f53c8274fda0581987e909dac8d00224bbd4ad0ec", 
+            "name": "OTA.apk", 
+            "size": 1648217
+        }, 
+        {
+            "hash": "1211b1b0e08f1fb621d537b932e490b3d0de4c7651af08bc8a227aaf53ffb715", 
+            "name": "NewSoundRecorder.apk", 
+            "size": 396728
+        }, 
+        {
+            "hash": "1f52a69e3936b75b810fa0106f9638f4700c376aa5fba50b2f9e32cd643b191f", 
+            "name": "FrozenKeyboard_com.thihaayekyaw.frozenkeyboard_2.apk", 
+            "size": 251111
+        }, 
+        {
+            "hash": "1f49ae22dd86efbafce8776a6e4c653642e6a6f370fb3b800ae9e37f7879fd21", 
+            "name": "OppoGestureUI.apk", 
+            "size": 900842
+        }, 
+        {
+            "hash": "3dc506e13891555bbd20408bad83ea4204ffb91d05c712f6cfc22a1a7596d125", 
+            "name": "EnglishgbPack.apk", 
+            "size": 7456100
+        }, 
+        {
+            "hash": "1b6cda6fff65dd015f7b46cf59ee2cdb09d92004a3f98d21c0a2b3053afad697", 
+            "name": "OppoGuardElf.apk", 
+            "size": 570228
+        }, 
+        {
+            "hash": "20ae91a9e7ac63289f265b003d3ccb91072555a8fe0e98b5aac6eb5776c72404", 
+            "name": "BurmesePack.apk", 
+            "size": 1493298
+        }, 
+        {
+            "hash": "575d9a5b06b3d5d91744e984ca0bd1bbb7a2939d4a864f94d3fc6891801539d9", 
+            "name": "GoogleContactsSyncAdapter.apk", 
+            "size": 243379
+        }, 
+        {
+            "hash": "c46e18e3919276fc32e79867e2a9dbd153a8ffbf6b8d963b6d0094ae54b14441", 
+            "name": "LocationEM2.apk", 
+            "size": 76372
+        }, 
+        {
+            "hash": "5cd00d4b5e512c85ef303f4b50364bf5ba73332f843ee28245084da98631defe", 
+            "name": "oppoMorningSystem.apk", 
+            "size": 71144
+        }, 
+        {
+            "hash": "848662d6433ec332cebc690c0672e9ca9708e900ba9232e1a11248a9f2209b5b", 
+            "name": "DiracAudioControlService.apk", 
+            "size": 234834
+        }, 
+        {
+            "hash": "5c5d11911274e70d77aff9d6589f3cbc6ab6f6e1a2d917d00237f1923542009b", 
+            "name": "ArabicPack.apk", 
+            "size": 3577929
+        }, 
+        {
+            "hash": "55728832144b0280a8f08343f924ef6e0030c1162bae5ee6aace7cd11f978074", 
+            "name": "GnssPowerSaver.apk", 
+            "size": 170094
+        }, 
+        {
+            "hash": "3a94c615a272c1a12701a0f4b38cc520da94af9f74831c1da0404a0ae26978be", 
+            "name": "ConfigUpdater.apk", 
+            "size": 1220521
+        }, 
+        {
+            "hash": "7e0f02aca69d1a5974c42da97f0e2436f3268807f029bc4c16cef3ec04d1104b", 
+            "name": "TamilPack.apk", 
+            "size": 305831
+        }, 
+        {
+            "hash": "0c121851c298a255f03d8a9f50e9c81dbc18f556d9e4d0fd28926bdfc0026ca3", 
+            "name": "ProfessionalCamera.apk", 
+            "size": 412890
+        }, 
+        {
+            "hash": "4fd6b420e092b8e5ff20ed805aa269cb62764677f3e119be9d20a1136818d75e", 
+            "name": "Maps.apk", 
+            "size": 19656867
+        }, 
+        {
+            "hash": "d0f7d4f492593cf9b6ae2a5a1aeac82e1789231f415a90c996205111576e94b4", 
+            "name": "Calculator.apk", 
+            "size": 215906
+        }, 
+        {
+            "hash": "68423d8596c4787811bfc456a44649f11ba08500371568806140e803a17f1994", 
+            "name": "ChtPack.apk", 
+            "size": 4242494
+        }, 
+        {
+            "hash": "e4f0663cbe84241b4a39b1c284388d0dbd4038000191cd2fcfed1175069e8f7b", 
+            "name": "RussianPack.apk", 
+            "size": 6050837
+        }, 
+        {
+            "hash": "b1afced51f0c196f8666581debefb0642d2f2888a0292de54ecd506a8a648962", 
+            "name": "ThemeSpace-KeKeThemeSpace.apk", 
+            "size": 7182792
+        }, 
+        {
+            "hash": "ef79cffbd8283f6da4550b3881fac32f61abdc02860b8af7680d70746941ee8a", 
+            "name": "OppoLauncher.apk", 
+            "size": 1158673
+        }, 
+        {
+            "hash": "8fb3302cf836f1c28ee7da0ebe3d77f83e63f6501fd101ad84a5a1181f6c0955", 
+            "name": "UserDictionaryProvider.apk", 
+            "size": 11367
+        }, 
+        {
+            "hash": "7938fde2737d8df7b0cf9e6ef1d17642576aeac499ff17e0ab1d49971193d9c4", 
+            "name": "ColorScreenshot.apk", 
+            "size": 382624
+        }, 
+        {
+            "hash": "d4a0713e6dae5bffce6dc6aa650dd25f1618ca92a492d8a0a68571eb0c1efc64", 
+            "name": "PbapClient.apk", 
+            "size": 560178
+        }, 
+        {
+            "hash": "c5c3c65f6c07941b57119e979fdb8e43fded04ca50675feaa9b4b1673b8a53a9", 
+            "name": "PacProcessor.apk", 
+            "size": 6170
+        }, 
+        {
+            "hash": "75a6257eb23aef3e0d88a873ffe9ec3f192f923c4b3aa0d94ee37b27588d35b4", 
+            "name": "KeKeMarketopporom_intl_5.0.2_d3be969_170525.apk", 
+            "size": 6023619
+        }, 
+        {
+            "hash": "1855db61378e2782881ba7c74be1b69bd4cd107ea0733b39d8db5d2f774b7897", 
+            "name": "VietnamPack.apk", 
+            "size": 2482837
+        }, 
+        {
+            "hash": "f90c7060eccedbd69e9c2593085494967e064b87bd10994fefc593fdf39f2994", 
+            "name": "OppoDCS.apk", 
+            "size": 276123
+        }, 
+        {
+            "hash": "b001426beeef47b51f98e85942c527fba0ed81e231c4f2df924ccd6a445b7234", 
+            "name": "GifCamera.apk", 
+            "size": 123937
+        }, 
+        {
+            "hash": "ba8b3a31d6468c4ef7872340fc719b39b0ae51f05f5824e2ee52404dacc73cc2", 
+            "name": "Stk1.apk", 
+            "size": 408628
+        }, 
+        {
+            "hash": "9af115b0356ddc20df365b30da9dff35f401e0ae019d092578126bd8d2434e4e", 
+            "name": "IFlySpeechService.apk", 
+            "size": 1154716
+        }, 
+        {
+            "hash": "6f3de49a8bca832811c627be069e0f6c43cdba5a8b6c6928658e7efdf7a568f9", 
+            "name": "RecentTask.apk", 
+            "size": 272873
+        }, 
+        {
+            "hash": "afc830359194dd947e93c647ec8eb54654731abc7b493655e91db5cfb86d00b9", 
+            "name": "ImageTool.apk", 
+            "size": 30173
+        }, 
+        {
+            "hash": "76b209e3f4935916f63bed7374caea5d52e13815d830b14a88705b70962276d5", 
+            "name": "KeyChain.apk", 
+            "size": 91096
+        }, 
+        {
+            "hash": "aee95c1930074de347c1f4d40f128c1287a55de71bd87d8d0c526e58c176eb9e", 
+            "name": "TurkishPack.apk", 
+            "size": 7294312
+        }, 
+        {
+            "hash": "5c528b05e4e57b8f9b26e83e6074617b194703064b78f810745aaa966f9f31d0", 
+            "name": "OppoGestureEngine.apk", 
+            "size": 100319
+        }, 
+        {
+            "hash": "3123287db09f8027d79cb8dc8274514f541bf6faf09fa9940a764ae55948069b", 
+            "name": "SwahiliPack.apk", 
+            "size": 3175390
+        }, 
+        {
+            "hash": "88df477462dc4c866ad688d27fd192975f8c544ce0e53232416f9de11d49936f", 
+            "name": "Gba.apk", 
+            "size": 37656
+        }, 
+        {
+            "hash": "191c224678284b1d3ad8a492c2bef1fd9d1fa9a998e61318478c76ca49648904", 
+            "name": "SdCardService.apk", 
+            "size": 23417
+        }, 
+        {
+            "hash": "c332f03701e17669ffd2196ee7e858e432052495fbea8d2ec4801aeda69d01fc", 
+            "name": "TeluguPack.apk", 
+            "size": 765329
+        }, 
+        {
+            "hash": "8064a95a754e90f67318a3dd1fc03b6448a076c1d501a5eab73da52a4375f430", 
+            "name": "TouchPal.apk", 
+            "size": 22788099
+        }, 
+        {
+            "hash": "8ffc62cf0997bfe1b49f7e31a5c46d03d57b304ea432ff66d9b87fd3aaef0fa5", 
+            "name": "MiraVision.apk", 
+            "size": 58324578
+        }, 
+        {
+            "hash": "52c1b24f7dac80c9d63240119f5398a3831525adb833265feea6cef94659930b", 
+            "name": "PhoneNOAreaInquireProvider.apk", 
+            "size": 515122
+        }, 
+        {
+            "hash": "bddfd0220ef04b1b5b9d0bc297f703e83a00cdd39b567079875576dd5474cf0a", 
+            "name": "OppoExServiceUI.apk", 
+            "size": 93088
+        }, 
+        {
+            "hash": "39f94db64e0205362862b810b20b15a9545c1adaa61eadc8aa375b09afe30913", 
+            "name": "AtciService.apk", 
+            "size": 30883
+        }, 
+        {
+            "hash": "d97b106ab2aa70edca11f82d547ecc338cdc34b377e9d6eaa40cbeeb370aff0c", 
+            "name": "OppoEngineerMode.apk", 
+            "size": 2536783
+        }, 
+        {
+            "hash": "add14e4c64e0d3f47ca3e9f0e7a2566474d045b50ba13d7d17d5d2e60f63dd2f", 
+            "name": "FingerprintProvider.apk", 
+            "size": 14984
+        }, 
+        {
+            "hash": "f561cd948955a9f76504fdf69fb5c54ef22e09f3a8155052923d6d42c06dea28", 
+            "name": "BackupRestoreRemoteService.apk", 
+            "size": 12152
+        }, 
+        {
+            "hash": "3dc755fe3aef4c73d1583d6a83757f6899b64904e9d78c27b5eda9a43ff64021", 
+            "name": "Wallpapers.apk", 
+            "size": 8904050
+        }, 
+        {
+            "hash": "eef7feb816bb181b36681b73c71a45e8c0fd22d2a34d1b24e96fae6279f55ac6", 
+            "name": "MTKLogger.apk", 
+            "size": 412373
+        }, 
+        {
+            "hash": "cf4be77d22205d02cdd435b09c7ba943eef9d9285c6cebe6b24de3b82594a854", 
+            "name": "Fingerprint.apk", 
+            "size": 736100
+        }, 
+        {
+            "hash": "172e845291d56cdb1b32f5a2af542c58d6fe09ba404e1d03c619758ccebb2035", 
+            "name": "RomUpdate.apk", 
+            "size": 100688
+        }, 
+        {
+            "hash": "623487cd552cd0c48a1289858c78b55efb8fad98a3920a08d7552ac5f7024e5b", 
+            "name": "Gmail2.apk", 
+            "size": 11334923
+        }, 
+        {
+            "hash": "a8a83e220e20f62ab64fe5de09c0c2e2adae2018637833f3868034f8e570fd06", 
+            "name": "Photos.apk", 
+            "size": 13300407
+        }, 
+        {
+            "hash": "a323778d43fc78c97156b4c73c21319220a53aec4aa1050fceac0eda31f7b9d1", 
+            "name": "EngSpecialTest.apk", 
+            "size": 7945567
+        }, 
+        {
+            "hash": "718d593f625df8c10f5a66baefb4a94635626f904a59a4dc1049d3c205158af9", 
+            "name": "ThaiPack.apk", 
+            "size": 1890283
+        }, 
+        {
+            "hash": "3669646d43793bcc1369d7001ff81b735dc08efb937795440befc2bfa9fd3c08", 
+            "name": "ColorAppServicesManager.apk", 
+            "size": 25898
+        }, 
+        {
+            "hash": "5114d7c7135c0e83dd438a5d54f5bc9aaa44c4dbe2024d46558cc6bb9a3a53e9", 
+            "name": "OppoNewSimDetect.apk", 
+            "size": 439815
+        }, 
+        {
+            "hash": "dc6b62e42caef5b3d9dbd514dbafb98975304ebff39207f540111e95aee74d79", 
+            "name": "ApplicationsProvider.apk", 
+            "size": 41780
+        }, 
+        {
+            "hash": "b176141ca4beb13e0daed5d69535ac857360b3a1f6fc00efca0e50317d29ddf4", 
+            "name": "FaceBeautyCamera.apk", 
+            "size": 232701
+        }, 
+        {
+            "hash": "cd2a9d1a0d624e5347817c6e8f318d4ff3c84c119dccc73f5a62a9a5a87dde6d", 
+            "name": "CaptivePortalLogin.apk", 
+            "size": 44191
+        }, 
+        {
+            "hash": "ab3785aad888f61b910136c8062d554eb441c06beb33d959d812a24cf6e1a1b0", 
+            "name": "PanoramaCamera.apk", 
+            "size": 180006
+        }, 
+        {
+            "hash": "412eafeadea4036900af17b75f6c685776902ed9f89aecd7bed68267cb8165c6", 
+            "name": "PackageInstaller.apk", 
+            "size": 1393581
+        }, 
+        {
+            "hash": "98421925c9d01f71cebcfa913e609de962012ee0923cab983a779eeca8255e3e", 
+            "name": "HetComm.apk", 
+            "size": 200928
+        }, 
+        {
+            "hash": "f4887ff8ae52107da17353dbcfc81a7f110da8b1e3e4bb7b055eef29f70165ed", 
+            "name": "UserCenter.apk", 
+            "size": 4653166
+        }, 
+        {
+            "hash": "ab17560b46465baeb24b872b69994fbd5ead680fc41099644a9339e828637f78", 
+            "name": "DownloaderCenterUI.apk", 
+            "size": 763958
+        }, 
+        {
+            "hash": "3b04845b648ddd128746f4ba3a4ce7bba0c4761a375eccbd0a7ad5300f600b34", 
+            "name": "Cleanmaster64.apk", 
+            "size": 1860632
+        }, 
+        {
+            "hash": "8072e655e5d63a78e4f90cc64490b03efa10d1bacffe80a691923ffeb0c2e255", 
+            "name": "Videos.apk", 
+            "size": 6742996
+        }, 
+        {
+            "hash": "ed5f7ae383d37a2dcc1c386fdc81141e557d6511e56e3021d3867b69b036c9db", 
+            "name": "SafeCenter.apk", 
+            "size": 9080125
+        }, 
+        {
+            "hash": "93a99a28372c829e37c023165db459d2eec289b67bc8a39bbd6569a8043f799a", 
+            "name": "InCallUI.apk", 
+            "size": 3285787
+        }, 
+        {
+            "hash": "df16b15192cf9d24d8884fd4ca0e213fb9f9e2736537d3a83c274ce809067976", 
+            "name": "UCService.apk", 
+            "size": 1648076
+        }, 
+        {
+            "hash": "6c795452ebc3b8b638bc548f086baa4374cb47d2bb857e967c150539df9270f7", 
+            "name": "ResourceMonitor.apk", 
+            "size": 54886
+        }, 
+        {
+            "hash": "97374f9f0c951bd3f5e5c02b0a832c817e78afd33665078e559b8876e7acf7ca", 
+            "name": "DrmProvider.apk", 
+            "size": 40680
+        }, 
+        {
+            "hash": "bb243110b3ccd43cfe2bc14e54585dc056808c77e87952026ee2dd1fecc2365d", 
+            "name": "BackupAndRestore.apk", 
+            "size": 3030126
+        }, 
+        {
+            "hash": "2ab9a5a90e897f511b148ba9e02aec70191d47f8ddb5ef5377408b2a7c268e80", 
+            "name": "DayDreamVideo.apk", 
+            "size": 59466
+        }, 
+        {
+            "hash": "0e89cfd35bb38b7b4024be7a46081ca7641be4c1048b25c8444ccbba95f4e510", 
+            "name": "DoubleExposureCamera.apk", 
+            "size": 63484
+        }, 
+        {
+            "hash": "8949b1ce5e9f0b26fcbdcfd25d0e11d2503cc03450fe5dd3ba3bb7acd73e794b", 
+            "name": "IndonesianPack.apk", 
+            "size": 1930332
+        }, 
+        {
+            "hash": "e6e3e3a05cd4670fb2b52c58b90e33d77a9ed01b7c91d4617458a4a8b66cbda9", 
+            "name": "OppoDropboxChmodService.apk", 
+            "size": 43170
+        }, 
+        {
+            "hash": "51464fd61ba8b6babd53e93ba28d15bda8d34b5a58e98763347f3e1d13c3952c", 
+            "name": "DocumentsUI.apk", 
+            "size": 1088803
+        }, 
+        {
+            "hash": "9901985dee06cb3109dae6100cbe4552efa4965852a1ec52e7e8f9a1c0ef2a25", 
+            "name": "Calendar.apk", 
+            "size": 3191124
+        }, 
+        {
+            "hash": "fd1263eecdcbd3555c60ea61b63ccd41258fea8c7972d71251b976f01b57f5b5", 
+            "name": "PhotoTable.apk", 
+            "size": 469202
+        }, 
+        {
+            "hash": "82be6c980223a30817daf8f60ff99c1b90796f8017aab885aac3abccf38f702c", 
+            "name": "OppoAfterServiceEx.apk", 
+            "size": 77878
+        }, 
+        {
+            "hash": "8e7fce080538be6072bdae78d0beec3d72f0304341f252871e9aa5ff024600bf", 
+            "name": "OppoWeather.apk", 
+            "size": 4344314
+        }, 
+        {
+            "hash": "ba09a9dfb1d3d4e780aa66db141b03db3e16dbc64b04042051a49cf9b766bf6a", 
+            "name": "KhmerPack.apk", 
+            "size": 688818
+        }, 
+        {
+            "hash": "61827eccfb3de3292c47c500344627c96539caea96c09d342590a5ad84217348", 
+            "name": "Keep.apk", 
+            "size": 10730139
+        }, 
+        {
+            "hash": "7c5056458ad464c3aad3fb65d8f7c188a2705c763dfe97d1707058df5a020f3d", 
+            "name": "Hangouts.apk", 
+            "size": 20006523
         }
     ], 
-    "sdk": "15"
+    "size": 1500994178
 }
