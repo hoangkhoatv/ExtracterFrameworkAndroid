@@ -1,16 +1,424 @@
 {
-    "miui_HMNote4XGlobal_V9.0.5.0.NCFMIEI_d6176de291_7.0.zip": {
-        "framework": {
-            "typeFile": "dat", 
-            "hash": "5d401be42789229d9c6bcebf100c9c3caaeb37f0764b4b65d727dc8188faa1b3", 
-            "extention": "zip", 
-            "stt": "complete", 
-            "outFile": "./out/framework_miui_HMNote4XGlobal_V9.0.5.0.NCFMIEI_d6176de291_7.0.zip_2017-12-30_08-50-32", 
-            "version": "7.0", 
-            "done": true, 
-            "time": 27.61, 
-            "size": 7490413, 
-            "sdk": "24"
+    "typeFile": "raw", 
+    "hash": "57250d4feffdd55af998564c773e2f2e061e03fc795d352f4e02edb5077e47e0", 
+    "framework": {
+        "hash": "2a63b1263dacbe75650752289b40e341c730ed9320d17d2b12cac4bba5c6306e", 
+        "name": "framework.jar", 
+        "size": 4374144
+    }, 
+    "extention": "zip", 
+    "stt": "complete", 
+    "outFile": "./out/framework_[SXGo]Unofficial-MIUI_acervenky.zip_2018-01-02_18-21-38", 
+    "version": "4.0.4", 
+    "done": false, 
+    "time": 55.89, 
+    "size": 165984915, 
+    "listApk": [
+        {
+            "hash": "76588c35ab7732a25ff3ae881598f90a521d4d68c5f68ceae6369530f5c4a185", 
+            "name": "AntiSpam.apk", 
+            "size": 202926
+        }, 
+        {
+            "hash": "233097a7297f24676cb3ec02807e183deb7b24248a18c3d32dd49a0fa8ccd99a", 
+            "name": "ApplicationsProvider.apk", 
+            "size": 19745
+        }, 
+        {
+            "hash": "c612c5194d62478af5e54f885b0ac357bf46dfe5f361644418d7b802fa56c930", 
+            "name": "Backup.apk", 
+            "size": 589425
+        }, 
+        {
+            "hash": "0d3f9e47fb0b5fb3d02e1e60a31ba0f050018707b6b2de17a169c30829b11a67", 
+            "name": "BackupRestoreConfirmation.apk", 
+            "size": 33042
+        }, 
+        {
+            "hash": "4b66dc289e5fd5e0ad57199f8690b00d71e7f17e82dfe375a23369057fd84eb6", 
+            "name": "Bluetooth.apk", 
+            "size": 237586
+        }, 
+        {
+            "hash": "c77a567ec14d04a6ad3fbc53cd6d26234752cc488bbd1bb4d650866bd8bf35d4", 
+            "name": "Browser.apk", 
+            "size": 2981929
+        }, 
+        {
+            "hash": "2bbb4432e07e5fb9c9199a066d618204f402c379e8b7acd2689fbbb5161be767", 
+            "name": "Calculator.apk", 
+            "size": 132150
+        }, 
+        {
+            "hash": "3e1747376b31402dc423d13b50de459abf572bbe9b7da3d1515efd9876144b7f", 
+            "name": "Calendar.apk", 
+            "size": 849554
+        }, 
+        {
+            "hash": "eb8f25ac9166252859edeb96bfb22bd758cefb50c670cf1277c57ef12b61df6e", 
+            "name": "CalendarProvider.apk", 
+            "size": 134036
+        }, 
+        {
+            "hash": "f0d02cf047a7a9db1b484edf223db5f1ace493011e0befd53b3d2bd3cb7e3cc7", 
+            "name": "Camera.apk", 
+            "size": 1003703
+        }, 
+        {
+            "hash": "e13a15c213e67ecbe8b6307a86824f2875f34e2933e4e3712c08bc2ff7183c5b", 
+            "name": "CertInstaller.apk", 
+            "size": 51890
+        }, 
+        {
+            "hash": "b957828161593576884a0f44c30781e861869245382efcdd534278c990875095", 
+            "name": "ChromeBookmarksSyncAdapter.apk", 
+            "size": 164592
+        }, 
+        {
+            "hash": "3697bb9d1ad14afd27903dea2b7a4caec93d38fd15b1254c86a65ab7fe84477e", 
+            "name": "CloudService.apk", 
+            "size": 176230
+        }, 
+        {
+            "hash": "b2acb120ddad6402981528a26052ea27c8ad015cdfeb10eca78c35b4ac9a5f1a", 
+            "name": "Contacts.apk", 
+            "size": 2758545
+        }, 
+        {
+            "hash": "e44a78ffa5f3f6c3ee7c9924077f46d4f1447a546453fde4e0e81c7ddf6940f1", 
+            "name": "ContactsProvider.apk", 
+            "size": 416115
+        }, 
+        {
+            "hash": "f63f6f2e69384e4f33a03d0a803d19acfc9e1b6797e6067b0d7e30da35a3eb5d", 
+            "name": "DefaultContainerService.apk", 
+            "size": 11335
+        }, 
+        {
+            "hash": "a3e1750147234145317f5abd5d799e0c4a257403de1bfbf4170cc6f87ddae8ac", 
+            "name": "DeskClock.apk", 
+            "size": 2318673
+        }, 
+        {
+            "hash": "1ad5b8d92bfb6280b965c4aae9941f9171e76bd5a02daf917c38434602d16f88", 
+            "name": "DownloadProvider.apk", 
+            "size": 119538
+        }, 
+        {
+            "hash": "68a9a3f328a9eba2287042eaec4e42578b26752894805f6db174b85a8857a580", 
+            "name": "DownloadProviderUi.apk", 
+            "size": 176517
+        }, 
+        {
+            "hash": "99bcf11eb9aaa87147d0d1ec138c5704e1fef43e72a1c08bd452b5f3a091e75f", 
+            "name": "DrmProvider.apk", 
+            "size": 15299
+        }, 
+        {
+            "hash": "c360136360ed52338b148c25e7a2b3f17d2de12c787158c94ac54e4b42861cbc", 
+            "name": "Email.apk", 
+            "size": 1749526
+        }, 
+        {
+            "hash": "6687200a5aca8d8e76d6ce9fb9cf7232093f0c91df830ff59037051f917d65b5", 
+            "name": "Exchange.apk", 
+            "size": 589976
+        }, 
+        {
+            "hash": "5a2b81c7b72e2a73ed4460f0f90ef30be53fc1d9f32fcfcdc83d1d315f085b5d", 
+            "name": "FileExplorer.apk", 
+            "size": 523459
+        }, 
+        {
+            "hash": "9d5aae3e29bbefe48a261ac74ebc1a2cb2bccc455bc9adbcbd8733436424d50f", 
+            "name": "Gallery2.apk", 
+            "size": 1506919
+        }, 
+        {
+            "hash": "228d8085aae92b099b2d847b317fd55b5e14b2faea96268937d9392a32e00f50", 
+            "name": "Gmail.apk", 
+            "size": 2801539
+        }, 
+        {
+            "hash": "436aad62a45acc24b8b06762db2d5972d245b29462ab77c109c03859c4093333", 
+            "name": "GoogleBackupTransport.apk", 
+            "size": 84106
+        }, 
+        {
+            "hash": "f59e3ff3bfc61f95572feb7306827e81113eac7335eecab8cead18ed1ea52a7b", 
+            "name": "GoogleCalendarSyncAdapter.apk", 
+            "size": 143789
+        }, 
+        {
+            "hash": "b4f1769c739968836a1bc0cb14c961d2ed4ec49553e18ad254cf94eed93520ef", 
+            "name": "GoogleContactsSyncAdapter.apk", 
+            "size": 145752
+        }, 
+        {
+            "hash": "75edc875249995ef2ded83ccae2c85de815346395c301933fb326d851876f6b3", 
+            "name": "GoogleLoginService.apk", 
+            "size": 2314006
+        }, 
+        {
+            "hash": "7706a116fa3230f09cdf6b3b30b33675ad7ad148d05185ad3b6b545a29e11084", 
+            "name": "GooglePartnerSetup.apk", 
+            "size": 98171
+        }, 
+        {
+            "hash": "2d0bade2696ec8288786c89d763897d5ec129fcaec8d4f8923906bddb70c406c", 
+            "name": "GooglePlayStore3.5.19.apk", 
+            "size": 4000309
+        }, 
+        {
+            "hash": "e596e1f171097a02fffcb4c1393302ba5380fabed640f0a490c96dc85952f539", 
+            "name": "GoogleServicesFramework.apk", 
+            "size": 2326020
+        }, 
+        {
+            "hash": "1e88dd5b0c883c9e9fed145f2593b904fe449826fc81dac0d57ca142240eaf00", 
+            "name": "GoogleTTS.apk", 
+            "size": 4321971
+        }, 
+        {
+            "hash": "f82af7da161f292cd64945b7377ba9266e15c26419e2e7cb780ddbfc132d979e", 
+            "name": "GuardProvider.apk", 
+            "size": 411208
+        }, 
+        {
+            "hash": "30383b6189de4a96cddc9a3b665995abb940bf73ffa8bd798d7b18c92501ee65", 
+            "name": "HdmiService.apk", 
+            "size": 422273
+        }, 
+        {
+            "hash": "a09d7fa3ad73cbaa96cfbb2304a051d5bfd6c93cb0c4528b43f157f135a9b047", 
+            "name": "HTMLViewer.apk", 
+            "size": 8543
+        }, 
+        {
+            "hash": "9145140b179d191d48ba1a499226fe575afea064a760f6ec561ba2c2b508536e", 
+            "name": "KeyChain.apk", 
+            "size": 25754
+        }, 
+        {
+            "hash": "d550055ffab4c92140827a9bec51b7a555ab1a2a1589e6c90267d5b2ebe70073", 
+            "name": "LatinImeGoogle.apk", 
+            "size": 6165681
+        }, 
+        {
+            "hash": "846bd9a5673d64444a8f54cbd9983029094100ffba079d92ecef9dda8df64fbd", 
+            "name": "LBESEC_MIUI.apk", 
+            "size": 516607
+        }, 
+        {
+            "hash": "a5bb9d83fd1679969d3c5b0ad5a9385a2ebc04d1209c86294b7f0a5d697cd123", 
+            "name": "LiveWallpapers.apk", 
+            "size": 1674445
+        }, 
+        {
+            "hash": "fb626d2cf7236741d6e8896a52f69d9e446f002d6ce0a340786ca2bb4587fea5", 
+            "name": "LiveWallpapersPicker.apk", 
+            "size": 121247
+        }, 
+        {
+            "hash": "daa9fc0451fc25542b69d353734e7671854b547cceb623e53fe658d07690b2fa", 
+            "name": "MarketUpdater.apk", 
+            "size": 12407
+        }, 
+        {
+            "hash": "730a727081b519b31f262ff1a4cdddd814cf9ec1c73f80499f924f491a24eeeb", 
+            "name": "MediaProvider.apk", 
+            "size": 62093
+        }, 
+        {
+            "hash": "aa277a2422899038837c8dbdbda0e50e48153a47418a584b404f213507c8625d", 
+            "name": "MiuiCompass.apk", 
+            "size": 1403158
+        }, 
+        {
+            "hash": "fa00f8be4b30a3a3139fde36c02f39128e7fc04201d0e7d219e7b37df3a0efa0", 
+            "name": "MiuiHome.apk", 
+            "size": 5627991
+        }, 
+        {
+            "hash": "3d13eba786652739b736193e5df7482fe3b027746da2ef8a25d8ab4a51ab1719", 
+            "name": "MIUIStats.apk", 
+            "size": 70828
+        }, 
+        {
+            "hash": "36a1a01a2e0b0598339753e4bf705de963689445135a907cc3bedcdb8270221b", 
+            "name": "MiuiSystemUI.apk", 
+            "size": 3203532
+        }, 
+        {
+            "hash": "57ed007ab346b224d9369c43db962cc487105af2c79d975da0f09fc40130ac70", 
+            "name": "MiuiVideoPlayer.apk", 
+            "size": 484653
+        }, 
+        {
+            "hash": "f506ec265b2b441fd01c9ff388311447c93f823c8950d1ddaad7969941156d06", 
+            "name": "Mms.apk", 
+            "size": 5325705
+        }, 
+        {
+            "hash": "96dd063f406d3faa6f244d5ffddc0f4970ef62fffc619ae94a79ac1387d2d96d", 
+            "name": "Music.apk", 
+            "size": 2837690
+        }, 
+        {
+            "hash": "60b48b70ecddc77568359b86dcac16df371b0465bafdc0ca183e89a10ed202a8", 
+            "name": "MusicFX.apk", 
+            "size": 75387
+        }, 
+        {
+            "hash": "c83e0f94fea908fa84b59820846eac5b888e6f3f488c58a47852e274635bf344", 
+            "name": "NetworkAssistant.apk", 
+            "size": 390138
+        }, 
+        {
+            "hash": "80ba5c5f220a8495b4be9ff55bc203f40a3c9f827738de018da7269e0be80d0f", 
+            "name": "NetworkLocation.apk", 
+            "size": 271513
+        }, 
+        {
+            "hash": "4fd7715b51698cfe6883bd0f0e005a1c41a8dde1bb8f84b64518390891c5bbcb", 
+            "name": "Notes.apk", 
+            "size": 4430481
+        }, 
+        {
+            "hash": "d2a995480a272de17f44993ca8acd4de88b2729ba609cea933a27caad8dc9439", 
+            "name": "PackageInstaller.apk", 
+            "size": 95529
+        }, 
+        {
+            "hash": "cfccd70c613f1155ae7f29f43319ba25bb69781a9fd225aa134972f4171f31cc", 
+            "name": "Phone.apk", 
+            "size": 2986707
+        }, 
+        {
+            "hash": "c971715e25dc8bcd528eb3cb8128a232a854187912b52afb0a85e781a21af146", 
+            "name": "PicoTts.apk", 
+            "size": 15445
+        }, 
+        {
+            "hash": "7a56128fc7c0c723ad37a6229c8a808dddb076d02d7a58a0362eb49aacfcf6f9", 
+            "name": "Provision.apk", 
+            "size": 3492
+        }, 
+        {
+            "hash": "ad85a37b83d1144ffb5d054dfaeef5962f298c2e92cee0947e6eb907a697e592", 
+            "name": "QuickSearchBox.apk", 
+            "size": 385867
+        }, 
+        {
+            "hash": "e395da521ad09e9997dabf67b255897722a1cd9c95ef2acb950861cb30a24298", 
+            "name": "SDCARD Mounter for Xperia P.apk", 
+            "size": 575754
+        }, 
+        {
+            "hash": "e1fb1fd8055ae3e2ffbe22adcd946365fa451b2a2b669c069056d4d2650146c7", 
+            "name": "Settings.apk", 
+            "size": 5856790
+        }, 
+        {
+            "hash": "327e26af8c4782b844748f00cd84315584d7dc34f633d478cb6031f33a13d7f7", 
+            "name": "SettingsProvider.apk", 
+            "size": 49302
+        }, 
+        {
+            "hash": "57959137ac5b8b00dca79f02fe5f79210c13832d8ff730e9c2e6f69065018a9c", 
+            "name": "SharedStorageBackup.apk", 
+            "size": 6063
+        }, 
+        {
+            "hash": "7e0e5f0c5f3d64ac4d70fa715cbd0e6f1259fff4807e172c170961001e851a9f", 
+            "name": "SoundRecorder.apk", 
+            "size": 988566
+        }, 
+        {
+            "hash": "5e2580d97a1c8746bf018412b59e4ac0dea357833401db57a04a52fd39887e5c", 
+            "name": "STEBluetooth.apk", 
+            "size": 54736
+        }, 
+        {
+            "hash": "12a6b3c8cf6c7058e6d6b24fdd57f3015ba9c881159d42db462ea06372d93ebb", 
+            "name": "Stk.apk", 
+            "size": 63364
+        }, 
+        {
+            "hash": "a438d6ef5b1163aa0acdd01eb33046d75d00538f80befdcfc969b9a66c8d940c", 
+            "name": "Tag.apk", 
+            "size": 168771
+        }, 
+        {
+            "hash": "dd4f2291eca9722e8dc8fb6f6a17bc74b3dbeb00eb5c1333a233ecc962454b4c", 
+            "name": "Talk.apk", 
+            "size": 1663774
+        }, 
+        {
+            "hash": "669becf230d8534864c0550a631c0e8cfb82860cb9e49784c450945fa445de95", 
+            "name": "TelephonyProvider.apk", 
+            "size": 60856
+        }, 
+        {
+            "hash": "f417ba5eaaafa8b75dc16b5ca5710b8a628cc5e69967e235c4855ac6a040c37b", 
+            "name": "TelocationProvider.apk", 
+            "size": 15286
+        }, 
+        {
+            "hash": "de7bac01d2026e1dd4b219e345a0be3a14c5a6a1e4661aa41f839f169aa6738a", 
+            "name": "ThemeManager.apk", 
+            "size": 767907
+        }, 
+        {
+            "hash": "c7162571bde328a5521fef2bddac6a3e6f5543e81fd9d6d4e346c876cbfa5403", 
+            "name": "UserbookProvider.apk", 
+            "size": 6159
+        }, 
+        {
+            "hash": "20c7d08008ff0a757c65082c8cfaa4e2299ac6608a990e109d0e14617484fae3", 
+            "name": "UserDictionaryProvider.apk", 
+            "size": 11115
+        }, 
+        {
+            "hash": "578d9cf899e0758eb8b152be70dffb90a665875863a50af58f3506a04a499600", 
+            "name": "VideoEditor.apk", 
+            "size": 4550042
+        }, 
+        {
+            "hash": "d285e4f6aa1a3b160f86c0fc87ff0d051588e32be0875287b83a3b762358f361", 
+            "name": "VisualizationWallpapers.apk", 
+            "size": 154744
+        }, 
+        {
+            "hash": "7b5defecd77ab2622b7da996e8e8e47e9b455589d0145e1530ff3bc80361f0d8", 
+            "name": "VoiceDialer.apk", 
+            "size": 65684
+        }, 
+        {
+            "hash": "6d3062ca2fde22fe94e6600d4ba2c57a81162d841450101acc4f7966f2b32a42", 
+            "name": "VpnDialogs.apk", 
+            "size": 18390
+        }, 
+        {
+            "hash": "d79b58aaf5e663ef84f5808904b66cff9cada9fa482c9962ca2d3121831c4218", 
+            "name": "WAPPushManager.apk", 
+            "size": 7080
+        }, 
+        {
+            "hash": "24e056e961fba5fd48d87b5018a77d2f48c8e45c7e05ea0278546f6e6b21f3a1", 
+            "name": "WeatherProvider.apk", 
+            "size": 9215
+        }, 
+        {
+            "hash": "2e20ac29f3df33ab53f9ff4547fc72e82c92a09725fec653c0ca8908af37e4ea", 
+            "name": "XiaomiServiceFramework.apk", 
+            "size": 440263
+        }, 
+        {
+            "hash": "739e03b7e412e3543055e98680b0e5061b6fad2be657dee950ae9d925d9dcc61", 
+            "name": "YoutubeHD.apk", 
+            "size": 6332989
         }
-    }
+    ], 
+    "sdk": "15"
 }

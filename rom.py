@@ -1,5 +1,7 @@
+from androidobject import AndroidObject
 class Rom:
     def __init__(self):
+        self.name = ''
         self.typeFile = ''
         self.extention = ''
         self.stt = ''
@@ -7,9 +9,16 @@ class Rom:
         self.size = 0
         self.sdk = ''
         self.version = ''
-        self.done = False
         self.time = ''
         self.hash = ''
+        self.listApk = []
+        self.framework = AndroidObject()
+    def getName(self):
+        return self.name
+    def getListApk(self):
+        return self.listApk
+    def getFramework(self):
+        return self.framework
     def getHash(self):
         return self.hash
     def getType(self):
@@ -26,7 +35,5 @@ class Rom:
         return self.sdk
     def getVersion(self):
         return self.version
-    def isDone(self):
-        return self.done
     def getTime(self):
         return self.time
