@@ -1,3 +1,4 @@
+
 from androidobject import AndroidObject
 class Rom:
     def __init__(self):
@@ -12,11 +13,14 @@ class Rom:
         self.time = ''
         self.hash = ''
         self.listApk = []
+        self.config = {}
         self.framework = AndroidObject()
     def getName(self):
         return self.name
     def getListApk(self):
         return self.listApk
+    def getConfig(self):
+        return self.config
     def getFramework(self):
         return self.framework
     def getHash(self):

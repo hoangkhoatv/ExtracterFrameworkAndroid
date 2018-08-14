@@ -15,6 +15,7 @@ from androidobject import AndroidObject
 def path_leaf(path):
     head, tail = ntpath.split(path)
     return tail or ntpath.basename(head)
+import capstone
 
 def sin(rom):
     print 'Please wait...\nGetting system.sin from ROM...'
@@ -40,7 +41,7 @@ def sin(rom):
     print 'MOUNT system.ext4 SUCCESSFULLY.\nGetting /system/framework...'
     print 'Deodex .jar .apk....'
      # process framework
-    import pdb; pdb.set_trace()
+    defaultConfiguation = capstone.getDefaultConfiguation(config.tempFolder)
     sdk, version = get_sdk_version_android(tmp)
     output = deodexJar(sdk,tmp,rom)
     copyFramework(tmp,output)
@@ -52,12 +53,12 @@ def sin(rom):
     call(["sudo", "umount",tmpMount])
     # remove temp folder
     os.system('rm -rf ' + config.tempFolder +'/*')
-    
+
     size = 0
     checkFile = os.path.isfile(output + '/framework.jar')
     if checkFile:
         size = os.path.getsize(output + '/framework.jar')
-    return size,output,sdk,version
+    return size,output,sdk,version,defaultConfiguation 
 
 
 def dat(rom):
@@ -83,9 +84,10 @@ def dat(rom):
     call(["sudo","mount",linkMount,tmpMount])
     call('sudo cp -rf ' + tmpMount +' '+ tmp,shell=True)
     print 'MOUNT system.img SUCCESSFULLY.\nGetting /system/framework...'
-    
+
     print 'Deodex .jar .apk....'
     # process framework
+    defaultConfiguation  = capstone.getDefaultConfiguation(config.tempFolder)
     sdk, version = get_sdk_version_android(tmp)
     output = deodexJar(sdk,tmp,rom)
     framework = copyFramework(tmp,output)
@@ -99,24 +101,24 @@ def dat(rom):
     # remove temp folder
     os.system('rm -rf ' + config.tempFolder +'/*')
 
-    return framework,apks,output,sdk,version
+    return framework,apks,output,sdk,version,defaultConfiguation 
 
 def raw(rom):
-    print 'Please wait...\nExtracting ROM...'
+    print 'Please wait...\nExtracting ROM RAW'
     folderraw = 'system.raw' + rom.replace('/','.')
     folderraw = re.sub( '\s+', '', folderraw ).strip()
     folderraw = config.tempFolder + folderraw
     if os.path.exists(folderraw):
         os.system('rm -rf ' + folderraw)
-    tmp = 'ROM' + rom.replace('/','.')
-    tmp = re.sub( '\s+', '', tmp ).strip()
-    tmp = config.tempFolder + tmp
+   
     with zipfile.ZipFile(rom,"r") as zip_ref:
-        zip_ref.extractall("./" + tmp)
+        zip_ref.extractall(folderraw)
     print 'EXTRACT ROM SUCCESSFULLY'
     print 'Deodex .jar .apk....'
     # process framework
-    tmp = tmp + "/system"
+    tmp = folderraw + "/system"
+    print tmp
+    defaultConfiguation  = capstone.getDefaultConfiguation(config.tempFolder)
     sdk, version = get_sdk_version_android(tmp)
     output = deodexJar(sdk,tmp,rom)
     framework = copyFramework(tmp,output)
@@ -126,7 +128,7 @@ def raw(rom):
     apks = copyApk(listApk,output)
     # remove temp folder
     os.system('rm -rf ' + config.tempFolder +'/*')
-    return framework,apks,output,sdk,version
+    return framework,apks,output,sdk,version,defaultConfiguation 
 
 def image(rom):
     print 'Please wait...\nExtracting ROM...'
@@ -167,6 +169,7 @@ def image(rom):
     print 'MOUNT system.raw.img SUCCESSFULLY.\nGetting /system/framework...'
     print 'Deodex .jar .apk....'
     # process framework
+    defaultConfiguation = capstone.getDefaultConfiguation(config.tempFolder)
     sdk, version = get_sdk_version_android(tmp)
     output = deodexJar(sdk,tmp,rom)
     copyFramework(tmp,output)
@@ -184,7 +187,21 @@ def image(rom):
     checkFile = os.path.isfile(output + '/framework.jar')
     if checkFile:
         size = os.path.getsize(output + '/framework.jar')
-    return size,output,sdk,version
+    return size,output,sdk,version,defaultConfiguation
+
+def device(rom,sdk):
+    print 'Deodex .jar .apk....'
+    # process framework
+    tmp = rom+ "/system"
+    output = deodexJar(sdk,tmp,rom)
+    framework = copyFramework(tmp,output)
+    # process apk
+    deodexApk(tmp + '/app')
+    listApk = getApk(tmp + '/app')
+    apks = copyApk(listApk,output)
+    # remove temp folder
+    os.system('rm -rf ' + config.tempFolder +'/*')
+    return framework,apks,output
 
 def get_sdk_version_android(members):
     checkfile = 'build.prop'
@@ -262,7 +279,7 @@ def deodexJar(sdk,path,rom):
     if sdk == 21 or sdk == 22 :
             call('sudo java -jar oat2dex_v0.86.jar -o '+ config.tempFolder + ' devfw '+ path + '/framework/',shell=True)
     elif sdk >= 23:
-            call('sudo java -jar oat2dex.jar -o '+ config.tempFolder + 'devfw '+ path + '/framework/',shell=True)
+            call('sudo java -jar oat2dex.jar -o '+ config.tempFolder + ' devfw '+ path + '/framework/',shell=True)
     output = 'framework_' + path_leaf(rom)  + '_' +  strftime('%Y-%m-%d_%H-%M-%S', gmtime())
     output = re.sub( '\s+', '', output ).strip()
     output = config.outFolder + output
@@ -283,7 +300,7 @@ def copyApk(listApk,output):
     listObjApk = []
     for apk in listApk:
         objApk = AndroidObject()
-        call('cp -r '+apk+' ./' + output, shell=True)
+        call('cp -r '+apk+' ' + output, shell=True)
         objApk.name = path_leaf(apk)
         objApk.size =  os.path.getsize(apk)
         objApk.hash = getHash(apk)
@@ -296,8 +313,10 @@ def copyFramework(tmp,output):
     if checkFile:
             tmp1 = config.tempFolder + 'boot-jar-result/framework.jar'
     else:
-            tmp1 = tmp + '/framework/framework.jar'
-    call('cp -r '+tmp1+' ./' +output+'/framework.jar', shell=True)
+        tmp1 = tmp + '/framework/framework.jar'
+        if (os.path.isfile(config.tempFolder + 'boot-jar-with-dex/framework.jar')):
+            tmp1 = config.tempFolder + 'boot-jar-with-dex/framework.jar'
+    call('cp -r '+tmp1+' ' +output+'/framework.jar', shell=True)
     size = 0
     checkFile = os.path.isfile(output + '/framework.jar')
     framework = AndroidObject()
@@ -309,4 +328,4 @@ def copyFramework(tmp,output):
     print 'GET /system/framework SUCCESSFULLY.'
     return framework
 
-    
+

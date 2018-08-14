@@ -38,7 +38,7 @@ _dirname = os.path.dirname(__file__)
 OAT2DEX = os.getenv("OAT2DEX", os.path.join(_dirname, "oat2dex.jar"))
 
 # Supported architectures (first match will be used)
-architectures = ["x86_64", "x86", "arm64", "arm"]
+architectures = ["x86_64", "x86", "arm64", "arm", "oat/x86_64","oat/x86","oat/arm"]
 
 def detect_arch(dirname):
     # Look for first available architecture (as subdir)
@@ -55,6 +55,13 @@ def find_file(path,name):
                 return True,os.path.join(root,filename)
     return False,None
 
+def find_oat_path(path):
+    check,url = find_file(path,"boot.oat")
+    if check:
+        return os.path.dirname(url)
+    return None
+
+
 def find_odex_for_apk(apk_path, arch):
     """
     Given a filename "Foo.apk", look for a matching odex file such as
@@ -65,9 +72,9 @@ def find_odex_for_apk(apk_path, arch):
     check,odex_path = find_file(dirname,odex_filename)
     if check:
         return odex_path
-    # odex_path = os.path.join(dirname, "oat", arch, odex_filename)  # Marshmallow
-    # if os.path.exists(odex_path):
-    #     return odex_path
+    odex_path = os.path.join(dirname, "oat", arch, odex_filename)  # Marshmallow
+    if os.path.exists(odex_path):
+        return odex_path
     # print apk_path
     # odex_path = os.path.join(dirname, arch, odex_filename)  # Lollipop
     # if os.path.exists(odex_path):
@@ -144,7 +151,6 @@ def process_apk(apk_path, arch, boot_odex_path):
     if "classes.dex" not in file_list:
         # Not found? Try to find odex file...
         odex_path = find_odex_for_apk(apk_path, arch)
-
         # convert it to a dex file...
         dex_path = odex_to_dex(apk_path,odex_path, boot_odex_path)
 
@@ -195,7 +201,6 @@ parser.add_argument("apk_files", nargs="+",
 # TODO: this is ugly, maybe split it...
 def detect_paths(apk_file, arch=None, framework_path=None):
     first_apk_dir = os.path.dirname(apk_file)
-
     # Default to ../../framework/boot relative if not given.
     if not framework_path:
         ext = os.path.splitext(apk_file)[1][1:]
@@ -217,7 +222,8 @@ def detect_paths(apk_file, arch=None, framework_path=None):
             sys.exit(1)
 
     # Assumed boot path, could be non-existing and be created later.
-    boot_odex_path = os.path.join(framework_path, arch, "odex")
+    # boot_odex_path = os.path.join(framework_path, arch, "odex")
+    boot_odex_path = find_oat_path(framework_path)
     return arch, boot_odex_path
 
 def main():
@@ -227,7 +233,6 @@ def main():
 
     arch, boot_odex_path = detect_paths(args.apk_files[0],
             args.arch, args.framework_path)
-
     # Validate boot path and try to optimize these files (needed for APK steps).
     try:
         process_boot(boot_odex_path)

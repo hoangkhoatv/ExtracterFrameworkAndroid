@@ -1,7 +1,7 @@
 class AndroidObject:
     def __init__(self):
-        self.name= ''
-        self.hash= ''
+        self.name = ""
+        self.hash = ""
         self.size = 0
     def getHash(self):
         return self.hash
@@ -10,4 +10,3 @@ class AndroidObject:
     def getName(self):
         return self.name
 
-    

@@ -7,6 +7,8 @@ import os
 import collections
 from rom import Rom
 from androidobject import AndroidObject
+
+
 def extractor(romfile):
     iRom = Rom()
     framework = AndroidObject()
@@ -16,18 +18,18 @@ def extractor(romfile):
     iRom.extention = romfile[lena-3:lena]
     print 'ROM type:', iRom.getExt()
     iRom.stt = 'Unsupported'
-
+    config = []
     if iRom.extention == 'ftf':
         iRom.stt = 'complete'
         iRom.typeFile = 'ftf'
-        framework,apks,iRom.outFile,iRom.sdk,iRom.version = ginlib.sin(romfile)
+        framework,apks,iRom.outFile,iRom.sdk,iRom.version,config = ginlib.sin(romfile)
     elif iRom.extention == 'rar':
         file_rar = rarfile.RarFile(romfile)
         isData = ginlib.find_data_rar(file_rar,'system.img')
         if isData != None:
             iRom.typeFile = 'img'
             iRom.stt  = 'complete'
-            framework,apks,iRom.outFile,iRom.sdk,iRom.version  = ginlib.image(romfile)
+            framework,apks,iRom.outFile,iRom.sdk,iRom.version,config  = ginlib.image(romfile)
         else:
                 print "Unsupported ROM..."
                 iRom.stt  = 'Unsupported'
@@ -38,16 +40,16 @@ def extractor(romfile):
         if isData != None:
             iRom.stt = 'complete'
             iRom.typeFile = 'img'
-            framework,apks,iRom.outFile,iRom.sdk,iRom.version  = ginlib.image(romfile)
+            framework,apks,iRom.outFile,iRom.sdk,iRom.version,config  = ginlib.image(romfile)
         else:
             if ginlib.find_data_zip(file_zip,'framework-res.apk') != None:
                 iRom.typeFile = 'raw'
                 iRom.stt = 'complete'
-                framework,apks,iRom.outFile,iRom.sdk,iRom.version = ginlib.raw(romfile)
+                framework,apks,iRom.outFile,iRom.sdk,iRom.version,config = ginlib.raw(romfile)
             elif ginlib.find_data_zip(file_zip,'system.new.dat') != None:
                 iRom.typeFile= 'dat'
                 iRom.stt = 'complete'
-                framework,apks,iRom.outFile,iRom.sdk,iRom.version = ginlib.dat(romfile)
+                framework,apks,iRom.outFile,iRom.sdk,iRom.version,config = ginlib.dat(romfile)
             else:
                 print "Unsupported ROM..."
                 iRom.stt = 'Unsupported'
@@ -57,14 +59,15 @@ def extractor(romfile):
         if isData != None:
             iRom.typeFile = 'img'
             iRom.stt = 'complete'
-            framework,apks,iRom.outFile,iRom.sdk,iRom.version  = ginlib.image(romfile)
+            framework,apks,iRom.outFile,iRom.sdk,iRom.version,config  = ginlib.image(romfile)
         else:
                 print "Unsupported ROM..."
                 iRom.stt = 'Unsupported'
 
-
+    iRom.version = iRom.version.replace('\r', '')
     iRom.size= os.path.getsize(romfile)
     iRom.hash = ginlib.getHash(romfile)
     iRom.framework = framework.__dict__
     iRom.listApk = apks
+    iRom.config=config
     return iRom
